@@ -1,7 +1,3 @@
-<?php
-include "../../Model/connection.php";
-?>
-
 <!DOCTYPE html>
 <html>
 <head>

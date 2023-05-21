@@ -1,14 +1,12 @@
 <?php
-$servername = "webstud.umt.edu.al/phpmyadmin";
-$username = "kjahaj";
-$password = "Marswe23";
+include "db.php";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli("webstud.umt.edu.al","kjahaj","Marswe23","web23_kjahaj");
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if($conn){
+  echo "connected succesfully";
 }
-echo "Connected successfully";
-?>
+else{
+  echo "not connected";
+}
