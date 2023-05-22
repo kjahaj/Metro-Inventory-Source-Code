@@ -1,3 +1,6 @@
+<?php
+include "../../Model/connection.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,3 +44,6 @@
   </div>
 </body>
 </html>
+<script rel="Script" href="getStockContr.js">
+  
+</script>
