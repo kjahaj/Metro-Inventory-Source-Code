@@ -39,12 +39,6 @@
       <br>
   </ul>
 </div>
-
-  
-  <div class="main-content">
-    <h2 class="content-heading"></p>
-  </div>
-  
   
     <footer id="footer">
       <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>
