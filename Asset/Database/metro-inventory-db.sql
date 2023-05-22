@@ -21,14 +21,6 @@ CREATE TABLE `users` (
   CONSTRAINT `groupID` FOREIGN KEY (`groupID`) REFERENCES `user-groups` (`groupID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `stock-items`;
-CREATE TABLE `stock-items` (
-  `itemID` int NOT NULL AUTO_INCREMENT,
-  `item` varchar(45) NOT NULL,
-  `category` enum('IT','SERVICE') NOT NULL,
-  PRIMARY KEY (`itemID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 DROP TABLE IF EXISTS `storage-units`;
 CREATE TABLE `storage-units` (
   `warehouseID` int NOT NULL AUTO_INCREMENT,
@@ -36,16 +28,17 @@ CREATE TABLE `storage-units` (
   `address` varchar(45) NOT NULL,
   `city` varchar(45) NOT NULL,
   PRIMARY KEY (`warehouseID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `items-quantities`;
-CREATE TABLE `items-quantities` (
-  `itemID` int NOT NULL,
-  `warehouseID` int NOT NULL,
+DROP TABLE IF EXISTS `stock-items`;
+CREATE TABLE `stock-items` (
+  `itemID` int NOT NULL AUTO_INCREMENT,
+  `item` varchar(45) NOT NULL,
+  `category` enum('IT','SERVICE') NOT NULL,
   `quantity` int NOT NULL DEFAULT '0',
+  `warehouseID` int NOT NULL,
+  PRIMARY KEY (`itemID`),
   KEY `warehouseID_idx` (`warehouseID`),
-  KEY `itemID_idx` (`itemID`),
-  CONSTRAINT `itemID` FOREIGN KEY (`itemID`) REFERENCES `stock-items` (`itemID`),
   CONSTRAINT `warehouseID` FOREIGN KEY (`warehouseID`) REFERENCES `storage-units` (`warehouseID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
