@@ -11,7 +11,7 @@
       <span>Username</span>
       <div class="dropdown-menu">
         <ul>
-          <li><a href="youtube.com">Profile</a></li>
+          <li>Profile</li>
           <li>Settings</li>
           <li>Logout</li>
         </ul>
@@ -21,22 +21,33 @@
   
   <div class="sidebar">
     <ul>
-      <li><a href="index.html">Dashboard</a></li>
-      <li><a href="stockcheck.html">Check stock</a></li>
+      <li><a href="index.php">Dashboard</a></li>
+      <li><a href="stockcheck.php">Check stock</a></li>
       <li>Buy stock</li>
       <li>Check requests</li>
     </ul>
   </div>
   
   <div class="main-content">
+  <div class="container">
+        <h1>Data Insertion</h1>
+        <input type="text" id="inputItem" placeholder="Enter item">
+        <input type="text" name="Quantity" placeholder="Enter quantity"></input>
+        <select id="inputCategory">
+            <option value="IT">IT</option>
+            <option value="service">Service</option>
+        </select>
+        <select id="warehouse"></select>
+        <button onclick="insertData()">Insert</button>
+        
+    </div>
     <h2 class="content-heading"></p>
   </div>
   
   <div class="footer">
     <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>
   </div>
+  <script src="../../Controller/insert-stock.js">
+  </script>
 </body>
 </html>
-<script rel ="script" href="insertStockContr.js">
-        
-</script>
