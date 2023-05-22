@@ -3,22 +3,32 @@
 <head>
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="../../Asset/CSS/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
+
 </head>
 <body>
+  
+      <!-- Navbar-i larte -->
   <div class="header">
     <h1 id="welcome">Admin Dashboard</h1>
     <div class="user-profile">
       <span>Username</span>
       <div class="dropdown-menu">
         <ul>
+<<<<<<< HEAD
           <li>Profile</li>
+=======
+          <li><a href="#">Profile</a></li>
+>>>>>>> 436abc1f82a8cfbea04bd3d682a8c5732c9bcc1f
           <li>Settings</li>
           <li>Logout</li>
         </ul>
       </div>
     </div>
   </div>
-  
+
+  <!-- Sidebar-i
   <div class="sidebar">
     <ul>
       <li><a href="index.php">Dashboard</a></li>
@@ -26,7 +36,40 @@
       <li>Buy stock</li>
       <li>Check requests</li>
     </ul>
-  </div>
+  </div> -->
+  <script>
+    var btn = document.querySelector('.toggle');
+var btnst = true;
+btn.onclick = function() {
+  if(btnst == true) {
+    document.querySelector('.toggle span').classList.add('toggle');
+    document.getElementById('sidebar').classList.add('sidebarshow');
+    btnst = false;
+  }else if(btnst == false) {
+    document.querySelector('.toggle span').classList.remove('toggle');
+    document.getElementById('sidebar').classList.remove('sidebarshow');
+    btnst = true;
+  }
+}
+  </script>
+
+  
+<div class="main">
+	<div class="sidebar sidebar--isHidden">
+		<ul class="sidebar-menu">
+			<li class="sidebar-menu__item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>  Dashboard</a></li>
+			<li class="sidebar-menu__item"><a href="#"><i class="fas fa-clipboard-check" aria-hidden="true"></i>  Check Stock</a></li>
+			<li class="sidebar-menu__item"><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i>  Buy Stock</a></li>
+			<li class="sidebar-menu__item"><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i>  Check Requests</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum neque facere enim vero quia hic, exercitationem doloribus qui reiciendis cum, voluptates iure nobis aperiam earum, reprehenderit quos voluptate eum inventore!
+		<div style="text-align: center; margin-top: 2rem">
+			<button id="toggle">Show Sidebar</button>
+		</div>
+	</div>
+</div>
   
   <div class="main-content">
   <div class="container">
