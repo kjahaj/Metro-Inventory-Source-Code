@@ -8,19 +8,6 @@
 
 </head>
 <body>
-  
-  
-   
-
-
-      <!-- Navbar-i larte -->
-      <
-
-  
-  
-
-  
-  
 
 <div class="sidebar" id='sidebar'>
   <div class="headeri">
