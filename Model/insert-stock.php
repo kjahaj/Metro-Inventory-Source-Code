@@ -3,23 +3,29 @@ include "./connection.php";
 
 $item = $_POST['item'];
 $category = $_POST['category'];
+$quantity = $_POST['quantity'];
+$warehouse = $_POST['warehouse'];
 
-// Step 3: Prepare the SQL query
-$sql1 = "INSERT INTO `stock-items` (item, category) VALUES (?, ?)";
+$wIDQuery = "SELECT warehouseID FROM `storage-units` WHERE warehouse = '$warehouse'";
+$wIDResult = mysqli_query($conn, $wIDQuery);
+$wIDRow = mysqli_fetch_assoc($wIDResult);
+$wID = $wIDRow['warehouseID'];
 
-// Step 4: Bind the parameters
-$stmt = mysqli_prepare($conn, $sql1);
-mysqli_stmt_bind_param($stmt, "ss", $item, $category);
+// Prepare the SQL query
+$sql = "INSERT INTO `stock-items` (item, category, quantity, warehouseID) VALUES (?, ?, ?, ?)";
 
-// Step 5: Execute the query
+// Bind the parameters
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "ssii", $item, $category, $quantity, $wID);
+
+// Execute the query
 if (mysqli_stmt_execute($stmt)) {
     echo "Data inserted successfully.";
 } else {
     echo "Error: " . mysqli_error($conn);
 }
 
-// Step 6: Close the database connection
+// Close the database connection
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
-
 ?>

@@ -1,6 +1,8 @@
 function insertData() {
     var item = document.getElementById("inputItem").value;
     var category = document.getElementById("inputCategory").value;
+    var quantity = document.getElementById("quantity").value;
+    var warehouse = document.getElementById("dropdown").value
     
     // Make an AJAX request to the PHP file
     var xhr = new XMLHttpRequest();
@@ -14,7 +16,8 @@ function insertData() {
     };
     
     // Encode the parameters properly
-    var params = "item=" + encodeURIComponent(item) + "&category=" + encodeURIComponent(category);
-    
+    var params = "item=" + encodeURIComponent(item) + "&category=" + encodeURIComponent(category)
+     + "&quantity=" + encodeURIComponent(quantity) + "&warehouse=" + encodeURIComponent(warehouse);
     xhr.send(params);
+        
 }
