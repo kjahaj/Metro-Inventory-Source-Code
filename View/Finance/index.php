@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
   <title>Finance</title>
 </head>
+<?php include("config.php"); ?>
 
 <body>
 
@@ -26,7 +27,7 @@
             <ul>
               <li><a href="#">Profile</a></li>
               <li><a href="#">Settings</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a href="../../View/Login/logout.php">Logout</a></li>
             </ul>
           </div>
         </div>
