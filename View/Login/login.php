@@ -12,16 +12,16 @@
 <body id="bg1">
 
   <div id="regForm">
-    <div class="header"><img src="../../Asset/Images/umt.png" alt="MetroInventory Logo"></div>
+    <div class="header"><img class="image" src="../../Asset/Images/umt.png" alt="MetroInventory Logo"></div>
     <form action="loginprocess.php" method="POST"><br><br>
       <div class="form-field email">
         <i class="fas fa-envelope"></i>
-        <input type="email" name="email" placeholder="Email" required = ""/>
+        <input class="email" type="email" name="email" placeholder="Email" required = ""/>
       </div>
 
-      <div class="form-field password">
+      <div class="form-field">
         <i class="fas fa-key"></i>
-        <input type="password" name="password" placeholder="Password" required />
+        <input class="password" type="password" name="password" placeholder="Password" required />
       </div>
       <div class="form-field">
       <button class="btn" type="submit" name="sub">Login</button>

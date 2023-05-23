@@ -141,3 +141,58 @@ form .form-field i {
   top: 15px;
   color: #888888;
 }
+.password{
+  border-radius: 20px;
+}
+.email{
+  border-radius: 20px;
+}
+@media screen and (max-width: 768px) {
+  form {
+    width: 80%;
+  }
+
+  #regForm {
+    padding: 100px;
+  }
+  .header img{
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media(max-width: 480px) {
+  form {
+    width: 100%;
+  }
+
+  #regForm {
+    padding: 50px;
+  }
+  .header img{
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media(max-width: 768px) {
+  .header img {
+    max-width: 80%;
+    margin-top: 100px;
+    height: 120px;
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 481px), (max-height:768px ) {
+  img .image{
+    max-width: 100%;
+    margin-top: 420px;
+  }
+  @media screen and (max-width: 1025px){
+    .header img .image{
+      margin-top: 230px;
+    }
+  }
+}
+
