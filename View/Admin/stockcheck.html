@@ -46,21 +46,24 @@
     <li><a href="#"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
   </ul>
 </div>
- <!-- kjo ktu do hiqe sepse kjo esht vtm per check kam hap faqe tjt per insert -->
+
 <div class="container">
-  <h1>Data Insertion</h1>
-  <input type="text" id="inputItem" placeholder="Enter item">
-  <input type="number" id="quantity" name="quantity" placeholder="quantity" required>
-  <select id="inputCategory">
-    <option value="IT">IT</option>
-    <option value="service">Service</option>
-  </select>
-  <select id="dropdown" name="dropdown"></select>
-  <button onclick="insertData()">Insert</button>
+  <table id="data-table">
+  <thead>
+    <tr>    
+      <th>Item</th>
+      <th>Category</th>
+      <th>Quantity</th>
+      <th>Warehouse</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 </div>
-<script src="../../Controller/add-warehouse.js"></script>
-<script src="../../Controller/insert-stock.js"></script>
-<!-- deri ktu -->
+
+
+<script src="../../Controller/show-stock.js"></script>
 
 
 <footer id="footer">

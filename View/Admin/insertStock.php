@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+ <?php 
+  session_start();
+  if(!isset($_SESSION["login"]))
+    header('Location: ../../View/Login/login.php'); 
+  ?> 
+  <!DOCTYPE html>
 <html>
 
 <head>
@@ -8,11 +13,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
   <title>Admin</title>
 </head>
-<?php 
-  session_start();
-  if(!isset($_SESSION["login"]))
-    header('Location: ../../View/Login/login.php'); 
-  ?>
+
+
 <div class="sidebar" id='sidebar'>
   <div class="headeri">
     <button type="button" class="toggle" id="toggle">
@@ -61,7 +63,7 @@
 <script src="../../Controller/add-warehouse.js"></script>
 <script src="../../Controller/insert-stock.js"></script>
 
-
+<!-- shelves qe do shtojm te insert stock  = <i class="fa-light fa-shelves"></i> -->
 
 <footer id="footer">
   <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>
