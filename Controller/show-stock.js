@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
         var table = document.getElementById("data-table");
         for (var i = 0; i < data.length; i++) {
           var row = table.insertRow(i + 1); // Add rows after the header row
-  
-          var itemCell = row.insertCell(0);
-          var categoryCell = row.insertCell(1);
-          var quantityCell = row.insertCell(2);
-          var warehouseCell = row.insertCell(3);
-  
+          
+          var itemCell = row.insertCell(1);
+          var categoryCell = row.insertCell(2);
+          var quantityCell = row.insertCell(3);
+          var warehouseCell = row.insertCell(4);
+          
           itemCell.textContent = data[i].item;
           categoryCell.textContent = data[i].category;
           quantityCell.textContent = data[i].quantity;
