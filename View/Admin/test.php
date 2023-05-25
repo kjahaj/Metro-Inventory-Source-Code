@@ -3,21 +3,15 @@
 <head>
   <title>Data Table Example</title>
 </head>
-
 <body>
-  <table id="data-table">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Category</th>
-        <th>Quantity</th>
-        <th>Warehouse</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
 
-  <script src="../../Controller/show-stock.js"></script>
+
+<div class="container">
+  <input type="number" id="editQuantity" placeholder="Edit quantity">
+
+</div>
+
+
+
 </body>
 </html>
