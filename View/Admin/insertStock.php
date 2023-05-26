@@ -1,8 +1,8 @@
- <?php 
+<?php 
   session_start();
   if(!isset($_SESSION["login"]))
     header('Location: ../../View/Login/login.php'); 
-  ?> 
+  ?>
   <!DOCTYPE html>
 <html>
 
@@ -37,11 +37,13 @@
     </div>
   </div>
   <ul>
-    <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+    <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
     <br>
-    <li><a href="#"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
+    <li><a href="stockcheck.html"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
     <br>
     <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i> Buy Stock</a></li>
+    <br>
+    <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Insert Stock</a></li>
     <br>
     <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i> Check Requests</a></li>
     <br>
@@ -58,12 +60,13 @@
     <option value="service">Service</option>
   </select>
   <select id="dropdown" name="dropdown"></select>
+  <br><br>
   <button onclick="insertData()">Insert</button>
 </div>
 <script src="../../Controller/add-warehouse.js"></script>
 <script src="../../Controller/insert-stock.js"></script>
 
-<!-- shelves qe do shtojm te insert stock  = <i class="fa-light fa-shelves"></i> -->
+
 
 <footer id="footer">
   <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>

@@ -57,6 +57,7 @@ body {
   list-style: none;
   background: #fff;
   padding: 10px;
+  
 }
 .dropdown-menu li {
   padding: 5px 0;
@@ -69,6 +70,7 @@ body {
 .dropdown-menu a:hover {
   color:dodgerblue;
 }
+
 .user-profile {
   display: flex;
   align-items: center;
@@ -267,3 +269,26 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+.container {
+  margin-top: 10%; 
+}
+
+#data-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+#data-table th,#data-table td {
+  padding: 8px;
+  text-align: left;
+   border-bottom: 1px solid #ddd;   /* kjo mund te japi nje problem te tabela */
+}
+
+#data-table th {
+  background-color: #f2f2f2;
+}
+
+/* #data-table tbody tr:hover {
+  background-color: #f5f5f5;    kjo do shtohet me vone 
+} */
