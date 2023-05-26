@@ -33,15 +33,15 @@ if (isset($_POST['sub'])) {
         $_SESSION["login"] = "1";
         if ($group == "ADMIN") {
             header("Location: ../../View/Admin/index.php");
-        } elseif ($group = "IT") {
+        } elseif ($group == "IT") {
             header("Location: ../../View/IT/index.php");
-        } elseif ($group = "SERVICE") {
+        } elseif ($group == "SERVICE") {
             header("Location: ../../View/Service/index.php");
-        } elseif ($group = "FINANCE") {
+        } elseif ($group == "FINANCE") {
             header("Location: ../../View/Finance/index.php");
         } else {
             header("Location: ../../View/User/index.php");
-        }
+        }        
         exit();
     } else {
         header("Location: login.php?err=1");
