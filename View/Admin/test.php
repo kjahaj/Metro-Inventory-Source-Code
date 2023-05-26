@@ -20,11 +20,14 @@
 <script>
 function editRow(button) {
   // Get the row element
-  var row = button.parentNode.parentNode;
+  let table = document.getElementById("myTable");
 
-  // Get the cell values within the row
-  var name = row.cells[0].innerHTML;
-  var email = row.cells[1].innerHTML;
+  var inputs = container.querySelectorAll('input');
+
+  inputs.forEach(function(input) {
+      input.readOnly = false;
+    });
+    
 
 
 }

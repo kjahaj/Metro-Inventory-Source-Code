@@ -13,7 +13,8 @@ function fetchData() {
       var table = document.getElementById("data-table");
       for (var i = 0; i < data.length; i++) {
         var row = table.insertRow(i + 1); // Add rows after the header row
-
+        row.id = data[i].itemID;
+        console.log(row.getAttribute("id"));
         var itemCell = row.insertCell(0);
         var categoryCell = row.insertCell(1);
         var quantityCell = row.insertCell(2);
@@ -28,7 +29,7 @@ function fetchData() {
         // Create a button element
         var button = document.createElement("button");
         button.textContent = "Click";
-        button.addEventListener("click", createButtonClickHandler(data[i])); // Attach a click event listener
+        button.addEventListener("click", createButtonClickHandler(data[i].itemID)); // Attach a click event listener
         buttonCell.appendChild(button);
       }
     }
@@ -36,23 +37,158 @@ function fetchData() {
   xhr.send();
 }
 
-// Click event handler for the button
-function createButtonClickHandler(item) {
+function createButtonClickHandler(itemId) {
   return function() {
+    // Find the row corresponding to the clicked button
+    var row = document.getElementById(itemId);
 
-    console.log(JSON.stringify(item));
+    // Retrieve the values from the row's cells
+    var itemCell = row.cells[0];
+    var categoryCell = row.cells[1];
+    var quantityCell = row.cells[2];
+    var warehouseCell = row.cells[3];
 
+    // Enable editing of the 'item' and 'quantity' cells
+    itemCell.contentEditable = true;
+    quantityCell.contentEditable = true;
 
+    // Replace the category cell with a dropdown
+    createCategoryDropdown(categoryCell, categoryCell.textContent);
 
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "../../Model/edit-stock.php", true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Handle the response from the PHP file
-            alert(xhr.responseText);
-        }
-    };
-    };
+    // Create the warehouse dropdown and populate it with data from the server
+    createWarehouseDropdown(warehouseCell, warehouseCell.textContent);
+
+    // Add a class to indicate the row is being edited
+    row.classList.add("editing");
+
+    // Event listener for the Enter key
+    row.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        // Prevent the default Enter key behavior (e.g., line break)
+        event.preventDefault();
+
+        // Save the edited values and exit editing mode
+        saveAndExitEditing(row, itemCell, categoryCell, quantityCell, warehouseCell);
+      }
+    });
+  };
 }
+
+function createCategoryDropdown(categoryCell, currentValue) {
+  // Check if the dropdown already exists
+  var existingDropdown = categoryCell.querySelector("select");
+  if (existingDropdown) {
+    existingDropdown.value = currentValue;
+    return;
+  }
+
+  // Create the select element
+  var selectElement = document.createElement("select");
+  selectElement.id = "categoryDropdown";
+
+  // Create the option elements for 'IT' and 'SERVICE'
+  var option1 = document.createElement("option");
+  option1.value = "IT";
+  option1.textContent = "IT";
+  var option2 = document.createElement("option");
+  option2.value = "SERVICE";
+  option2.textContent = "SERVICE";
+
+  // Set the selected option based on the current value
+  if (currentValue === "IT") {
+    option1.selected = true;
+  } else if (currentValue === "SERVICE") {
+    option2.selected = true;
+  }
+
+  // Add the option elements to the select element
+  selectElement.appendChild(option1);
+  selectElement.appendChild(option2);
+
+  // Replace the category cell content with the dropdown
+  categoryCell.innerHTML = '';
+  categoryCell.appendChild(selectElement);
+}
+
+function createWarehouseDropdown(warehouseCell, currentValue) {
+  // Check if the dropdown already exists
+  var existingDropdown = warehouseCell.querySelector("select");
+  if (existingDropdown) {
+    existingDropdown.value = currentValue;
+    return;
+  }
+
+  // Create the select element
+  var selectElement = document.createElement("select");
+  selectElement.id = "warehouseDropdown";
+
+  // Make an AJAX request to get the warehouse data
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../../Model/get-whouse.php", true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var data = JSON.parse(xhr.responseText);
+
+      // Populate the dropdown with the data
+      for (var i = 0; i < data.length; i++) {
+        var option = document.createElement("option");
+        option.text = data[i];
+        selectElement.add(option);
+      }
+
+      // Set the selected option based on the current value
+      selectElement.value = currentValue;
+    }
+  };
+  xhr.send();
+
+  // Replace the warehouse cell content with the dropdown
+  warehouseCell.innerHTML = '';
+  warehouseCell.appendChild(selectElement);
+}
+
+function saveAndExitEditing(row, itemCell, categoryCell, quantityCell, warehouseCell) {
+  // Retrieve the edited values
+  var editedItem = itemCell.textContent;
+  var editedCategory = categoryCell.querySelector("select").value;
+  var editedQuantity = quantityCell.textContent;
+  var editedWarehouse = warehouseCell.querySelector("select").value;
+
+  // Perform further actions with the edited values
+  // For example, update the database or apply validation
+
+  // Disable editing mode and remove the "editing" class
+  itemCell.contentEditable = false;
+  quantityCell.contentEditable = false;
+  categoryCell.textContent = editedCategory;
+  warehouseCell.textContent = editedWarehouse;
+  row.classList.remove("editing");
+
+  // Retrieve the row ID
+  var rowId = row.getAttribute("id");
+
+  // Send the updated values to the server for database update
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "../../Model/edit-stock.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Handle the response from the server if needed
+      console.log("Database updated successfully!");
+    }
+  };
+  xhr.send("rowId=" + encodeURIComponent(rowId) +
+           "&item=" + encodeURIComponent(editedItem) +
+           "&category=" + encodeURIComponent(editedCategory) +
+           "&quantity=" + encodeURIComponent(editedQuantity) +
+           "&warehouse=" + encodeURIComponent(editedWarehouse));
+}
+
+// Attach the click event listener to the button
+var button = document.getElementById("edit-button");
+button.addEventListener("click", createButtonClickHandler("example-row"));
+
+
+
 
 
