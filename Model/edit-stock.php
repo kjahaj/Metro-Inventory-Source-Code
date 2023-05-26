@@ -25,7 +25,7 @@ $sql = "UPDATE `stock-items`
 if ($conn->query($sql) === TRUE) {
     echo "Database updated successfully";
 } else {
-    echo "Error updating database: " . $conn->error;
+    echo "Error updating database: ";
 }
 
 $conn->close();
