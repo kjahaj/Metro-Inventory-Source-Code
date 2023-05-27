@@ -47,7 +47,7 @@ CREATE TABLE `stock-items` (
 
 DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
-    `ticketID` INT(11) NOT NULL,
+    `ticketID` INT(11) NOT NULL AUTO_INCREMENT,
     `tittle` VARCHAR(20) NOT NULL,
     `message` VARCHAR(300) NOT NULL DEFAULT '',
     `msg-status` ENUM('READ', 'UNREAD') NOT NULL DEFAULT 'UNREAD',
