@@ -14,28 +14,60 @@ function fetchData() {
       for (var i = 0; i < data.length; i++) {
         var row = table.insertRow(i + 1); // Add rows after the header row
         row.id = data[i].itemID;
-        console.log(row.getAttribute("id"));
+
+        // Create cells for each data column
         var itemCell = row.insertCell(0);
         var categoryCell = row.insertCell(1);
         var quantityCell = row.insertCell(2);
         var warehouseCell = row.insertCell(3);
-        var buttonCell = row.insertCell(4); // Add a cell for the button
-
+        var buttonCell = row.insertCell(4);
+        var button2Cell = row.insertCell(5);
+        // Set the text content of each cell
         itemCell.textContent = data[i].item;
         categoryCell.textContent = data[i].category;
         quantityCell.textContent = data[i].quantity;
         warehouseCell.textContent = data[i].warehouse;
 
-        // Create a button element
-        var button = document.createElement("button");
-        button.textContent = "Click";
-        button.addEventListener("click", createButtonClickHandler(data[i].itemID)); // Attach a click event listener
-        buttonCell.appendChild(button);
+        // Create a button element for editing
+        var editButton = document.createElement("button");
+        editButton.textContent = "Edit";
+        editButton.addEventListener("click", createButtonClickHandler(data[i].itemID));
+        buttonCell.appendChild(editButton);
+
+        // Create a button element for deletion
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", createDeleteButtonClickHandler(data[i].itemID));
+        button2Cell.appendChild(deleteButton);
       }
     }
   };
   xhr.send();
 }
+
+
+function createDeleteButtonClickHandler(itemId) {
+  return function() {
+    // Find the row corresponding to the clicked delete button
+    var row = document.getElementById(itemId);
+
+    // Remove the row from the table
+    row.parentNode.removeChild(row);
+
+    // Send the request to the server to delete the corresponding item
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../../Model/delete-item.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // Handle the response from the server if needed
+        console.log("Item deleted successfully!");
+      }
+    };
+    xhr.send("itemId=" + encodeURIComponent(itemId));
+  };
+}
+
 
 function createButtonClickHandler(itemId) {
   return function() {
