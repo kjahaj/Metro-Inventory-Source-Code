@@ -1,9 +1,4 @@
-<?php 
-  session_start();
-  if(!isset($_SESSION["login"]))
-    header('Location: ../../View/Login/login.php'); 
-  ?>
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -13,8 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
   <title>Admin</title>
 </head>
-
-
 <div class="sidebar" id='sidebar'>
   <div class="headeri">
     <button type="button" class="toggle" id="toggle">
@@ -37,13 +30,11 @@
     </div>
   </div>
   <ul>
-    <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+    <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
     <br>
-    <li><a href="stockcheck.html"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
+    <li><a href="#"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
     <br>
     <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i> Buy Stock</a></li>
-    <br>
-    <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Insert Stock</a></li>
     <br>
     <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i> Check Requests</a></li>
     <br>
@@ -52,20 +43,23 @@
 </div>
 
 <div class="container">
-  <h1>Data Insertion</h1>
-  <input type="text" id="inputItem" placeholder="Enter item">
-  <input type="number" id="quantity" name="quantity" placeholder="quantity" required>
-  <select id="inputCategory">
-    <option value="IT">IT</option>
-    <option value="service">Service</option>
-  </select>
-  <select id="dropdown" name="dropdown"></select>
-  <br><br>
-  <button onclick="insertData()">Insert</button>
+  <table id="data-table">
+  <thead>
+    <tr>    
+      <th>Item</th>
+      <th>Category</th>
+      <th>Quantity</th>
+      <th>Warehouse</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 </div>
-<script src="../../Controller/add-warehouse.js"></script>
-<script src="../../Controller/insert-stock.js"></script>
 
+<script src="../../Controller/show-stock.js"></script>
 
 
 <footer id="footer">

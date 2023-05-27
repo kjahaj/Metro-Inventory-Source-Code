@@ -1,23 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Data Table Example</title>
-</head>
+<table id="myTable">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>John Doe</td>
+    <td>johndoe@example.com</td>
+    <td><button onclick="editRow(this)">Edit</button></td>
+  </tr>
+  <tr>
+    <td>Jane Smith</td>
+    <td>janesmith@example.com</td>
+    <td><button onclick="editRow(this)">Edit</button></td>
+  </tr>
+  <!-- More rows... -->
+</table>
 
-<body>
-  <table id="data-table">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Category</th>
-        <th>Quantity</th>
-        <th>Warehouse</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+<script>
+function editRow(button) {
+  // Get the row element
+  let table = document.getElementById("myTable");
 
-  <script src="../../Controller/show-stock.js"></script>
-</body>
-</html>
+  var inputs = container.querySelectorAll('input');
+
+  inputs.forEach(function(input) {
+      input.readOnly = false;
+    });
+    
+
+
+}
+</script>

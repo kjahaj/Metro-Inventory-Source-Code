@@ -1,7 +1,7 @@
 <?php
 include "./connection.php";
 
-$sql = "SELECT `stock-items`.item, `stock-items`.category, `stock-items`.quantity, `storage-units`.warehouse
+$sql = "SELECT `stock-items`.itemID, `stock-items`.item, `stock-items`.category, `stock-items`.quantity, `storage-units`.warehouse
         FROM `stock-items` 
         JOIN `storage-units` ON `stock-items`.warehouseID = `storage-units`.warehouseID";
 
