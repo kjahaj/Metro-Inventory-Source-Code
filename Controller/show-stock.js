@@ -50,7 +50,7 @@ function createDeleteButtonClickHandler(itemId) {
   return function() {
     // Find the row corresponding to the clicked delete button
     var row = document.getElementById(itemId);
-
+    console.log(itemId);
     // Remove the row from the table
     row.parentNode.removeChild(row);
 
@@ -64,7 +64,7 @@ function createDeleteButtonClickHandler(itemId) {
         console.log("Item deleted successfully!");
       }
     };
-    xhr.send("itemId=" + encodeURIComponent(itemId));
+    xhr.send("itemID=" + encodeURIComponent(itemId));
   };
 }
 
