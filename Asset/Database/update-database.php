@@ -15,7 +15,7 @@ if (!$conn) {
 }
 
 try {
-  $dsn = "mysql:host=localhost;dbname=information_schema;";
+  $dsn = "mysql:host=localhost;dbname=metro-inventory;";
   $pdo = new PDO($dsn, $user, $password);
   createSchema($pdo, $conn);
   $pdo = null;
