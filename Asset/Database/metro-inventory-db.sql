@@ -47,24 +47,22 @@ CREATE TABLE `stock-items` (
 
 DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
-    `ticketID` INT(11) NOT NULL AUTO_INCREMENT,
-    `tittle` VARCHAR(20) NOT NULL,
-    `message` VARCHAR(300) NOT NULL DEFAULT '',
-    `msg-status` ENUM('READ', 'UNREAD') NOT NULL DEFAULT 'UNREAD',
-    `status` ENUM('ACTIVE', 'COMPLETED') NOT NULL DEFAULT 'ACTIVE',
-    `date-time-created` VARCHAR(45) NOT NULL,
-    `date-time-modified` VARCHAR(45) NOT NULL,
-    `groupID` INT(11) NOT NULL,
-    `senderID` INT(11) NOT NULL,
-    `user-modifier-ID` INT(11) NOT NULL,
-    PRIMARY KEY (`ticketID`),
-    KEY `group-ticket-ID_idx` (`groupID`),
-    KEY `user-ticket-ID_idx` (`senderID`),
-    CONSTRAINT `group-ticket-ID` FOREIGN KEY (`groupID`)
-        REFERENCES `user-groups` (`groupID`),
-    CONSTRAINT `sender-ticket-ID` FOREIGN KEY (`senderID`)
-        REFERENCES `users` (`userID`)
-)  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
+  `ticketID` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(20) NOT NULL,
+  `message` varchar(300) NOT NULL DEFAULT '',
+  `msg-status` enum('READ','UNREAD') NOT NULL DEFAULT 'UNREAD',
+  `status` enum('ACTIVE','COMPLETED') NOT NULL DEFAULT 'ACTIVE',
+  `date-time-created` varchar(45) NOT NULL,
+  `date-time-modified` varchar(45) NOT NULL,
+  `groupID` int NOT NULL,
+  `senderID` int NOT NULL,
+  `user-modifier-ID` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ticketID`),
+  KEY `group-ticket-ID_idx` (`groupID`),
+  KEY `user-ticket-ID_idx` (`senderID`),
+  CONSTRAINT `group-ticket-ID` FOREIGN KEY (`groupID`) REFERENCES `user-groups` (`groupID`),
+  CONSTRAINT `sender-ticket-ID` FOREIGN KEY (`senderID`) REFERENCES `users` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE `transactions` (

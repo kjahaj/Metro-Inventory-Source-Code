@@ -45,8 +45,38 @@
         </ul>
     </div>
 
-    <div class="container">
-        <div id="ticket-container"></div>
+    <div id="ticket-container" class="container">
+        <button id="openCT">Create Ticket</button>
+
+        <div id="myPopup" class="popup">
+            <span class="close">&times;</span>
+            <h2>Create a Ticket</h2>
+
+            <form action="../../Model/create-ticket.php" method="POST">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="group">Group:</label>
+                    <select id="group" name="group" required>
+                        <option value="SERVICE">SERVICE</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </div>
+
+                <button type="submit" name="createTicket">Create Ticket</button>
+            </form>
+        </div>
+
+        <div id="overlay"></div>
+        
     </div>
 
     <footer id="footer">
@@ -55,6 +85,16 @@
 
     <script src="../../Controller/show-tickets.js"></script>
     <script>
+        document.getElementById("openCT").addEventListener("click", function() {
+            document.getElementById("myPopup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        });
+
+        document.getElementsByClassName("close")[0].addEventListener("click", function() {
+            document.getElementById("myPopup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        });
+
         var btn = document.querySelector('.toggle');
         var btnst = true;
         btn.onclick = function() {

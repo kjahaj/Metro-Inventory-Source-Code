@@ -1,10 +1,8 @@
 <?php
 
-static $host = "localhost";
-static $user = "root";
-static $password = "";
+include "../../View/Login/config.php";
 
-$conn = new mysqli($host, $user, $password);
+$conn = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 
 //This File will update your data base will current changes by droping it and creation a new one !
 //User credencials e-mail: yourname@umt.edu.al (school email) pass: 1234;
@@ -15,28 +13,18 @@ if (!$conn) {
 }
 
 try {
-  $dsn = "mysql:host=localhost;dbname=metro-inventory;";
-  $pdo = new PDO($dsn, $user, $password);
-  createSchema($pdo, $conn);
-  $pdo = null;
-} catch (PDOException $e) {
-  echo "Database connection failed: " . $e->getMessage();
-  return;
-}
-
-function createSchema(PDO $pdo, $conn)
-{
-  global $host, $user, $password;
-  $schemaName = "metro-inventory";
   $sqlFile = "metro-inventory-db.sql";
-  
+
     $sql = file_get_contents($sqlFile);
     if ($conn->multi_query($sql) === TRUE) {
       $conn = null;
-      $conn = new mysqli($host, $user, $password, $schemaName);
+      $conn = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName);
       echo "Database Updated :)";
     } else {
       echo "Error executing SQL file: " . $conn->error;
       return;
     }
+} catch (PDOException $e) {
+  echo "Database connection failed: " . $e->getMessage();
+  return;
 }

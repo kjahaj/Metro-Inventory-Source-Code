@@ -1,36 +1,30 @@
 <?php
-
 include "./connection.php";
-$json = file_get_contents('php://input');
-$object = json_decode($json);
 
-// Access object properties
-$tittle = $object->tittle;
-$message = $object->message;
-$msgStatus = $object->{'msg-status'};
-$status = $object->status;
-$dateTimeCreated = $object->{'date-time-created'};
-$dateTimeModified = $object->{'date-time-modified'};
-$groupID = $object->groupID;
-$senderID = $object->senderID;
-$userModifierID = $object->{'user-modifier-ID'};
+if (isset($_POST['createTicket'])) {
+    $title = $_POST['title'];
+    $message = $_POST['message'];
+    $dateTimeCreated = date('Y-m-d H:i:s');
+    $dateTimeModified = date('Y-m-d H:i:s');
+    $group = $_POST['group'];
+    $senderID = 1;
 
-// Prepare the SQL query
-$sql = "INSERT INTO tickets (tittle, message, `msg-status`, `status`, `date-time-created`, `date-time-modified`, groupID, senderID, `user-modifier-ID`)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql =
+        "INSERT INTO `metro-inventory`.`tickets`
+        (`title`, `message`, `date-time-created`, `date-time-modified`, `groupID`, `senderID`)
+        VALUES (?, ?, ?, ?, (SELECT `groupID` FROM `metro-inventory`.`user-groups` WHERE `group` = ?), ?)";
 
-// Bind the parameters
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "sssssssss", $tittle, $message, $msgStatus, $status, $dateTimeCreated, $dateTimeModified, $groupID, $senderID, $userModifierID);
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "sssssi", $title, $message, $dateTimeCreated, $dateTimeModified, $group, $senderID);
 
-// Execute the query
-if (mysqli_stmt_execute($stmt)) {
-    echo "Data inserted successfully.";
-} else {
-    echo "Error: " . mysqli_error($conn);
+    // Execute the query
+    if (mysqli_stmt_execute($stmt)) {
+        header("Location: ../View/Admin/view-tickets.php");
+        exit();
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
+    mysqli_stmt_close($stmt);
 }
-
-// Close the statement and the database connection
-mysqli_stmt_close($stmt);
 mysqli_close($conn);
-?>
