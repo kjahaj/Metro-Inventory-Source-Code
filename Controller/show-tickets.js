@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   function fetchData() {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "../../Model/get-tickets.php?group_id=2", true);
+    xhr.open("GET", "../../Model/get-tickets.php?group_id=1", true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
         var data = JSON.parse(xhr.responseText);
