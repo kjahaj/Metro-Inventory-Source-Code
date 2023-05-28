@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
   <title>Admin</title>
 </head>
+
+
 <div class="sidebar" id='sidebar'>
   <div class="headeri">
     <button type="button" class="toggle" id="toggle">
@@ -43,24 +45,20 @@
 </div>
 
 <div class="container">
-  <table id="data-table">
-  <thead>
-    <tr>    
-      <th>Item</th>
-      <th>Category</th>
-      <th>Quantity</th>
-      <th>Warehouse</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+  <h1>Data Insertion</h1>
+  <input type="text" id="inputItem" placeholder="Enter item">
+  <input type="number" id="quantity" name="quantity" placeholder="quantity" required>
+  <select id="inputCategory">
+    <option value="IT">IT</option>
+    <option value="service">Service</option>
+  </select>
+  <select id="dropdown" name="dropdown"></select>
+  <button onclick="insertData()">Insert</button>
 </div>
+<script src="../../Controller/add-warehouse.js"></script>
+<script src="../../Controller/insert-stock.js"></script>
 
-<script src="../../Controller/show-stock.js"></script>
-
+<!-- shelves qe do shtojm te insert stock  = <i class="fa-light fa-shelves"></i> -->
 
 <footer id="footer">
   <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>

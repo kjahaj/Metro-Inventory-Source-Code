@@ -10,11 +10,7 @@
 
   <title>Admin</title>
 </head>
-<?php 
-  session_start();
-  if(!isset($_SESSION["login"]))
-    header('Location: ../../View/Login/login.php'); 
-  ?>
+
 <div class="sidebar" id='sidebar'>
   <div class="headeri">
     <button type="button" class="toggle" id="toggle">
