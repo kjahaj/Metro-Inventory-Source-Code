@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("config.php");
+include("./config.php");
 if (!isset($_SESSION["login"]))
     header('Location: ../../View/Login/login.php');
 
@@ -16,7 +16,7 @@ if (isset($_POST['sub'])) {
 
     // Prepare and execute the query using prepared statements
     $stmt = mysqli_prepare(
-        $mysqli,
+        $conn,
         "SELECT u.userID, u.name, u.surname, g.group FROM `users` u 
     INNER JOIN `user-groups` g ON u.groupID = g.groupID
     WHERE `e-mail`= ? AND password= ?;"

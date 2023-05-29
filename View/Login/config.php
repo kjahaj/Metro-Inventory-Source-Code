@@ -1,10 +1,10 @@
 <?php
 
-$databaseHost = '127.0.0.1';//or localhost
-$databaseName = 'metro-inventory'; // your db_name
-$databaseUsername = 'root'; // root by default for localhost 
-$databasePassword = '';  // by defualt empty for localhost
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "metro-inventory";
 
-$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
  
 ?>

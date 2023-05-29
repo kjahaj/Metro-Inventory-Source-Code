@@ -1,8 +1,8 @@
 <?php
-// Step 1: Establish a database connection
+
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "metro-inventory";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
