@@ -32,15 +32,17 @@
     </div>
   </div>
   <ul>
-    <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+    <li><a href="index.php"><i class="fa fa-home" aria-hidden="true" ></i>&nbsp;&nbsp;&nbsp;Dashboard</a></li>
     <br>
-    <li><a href="#"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
+    <li><a href="stockcheck.html"><i class="fas fa-clipboard-check" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Check Stock</a></li>
     <br>
-    <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i> Buy Stock</a></li>
+    <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true" ></i>&nbsp;&nbsp;&nbsp;Buy Stock</a></li>
     <br>
-    <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i> Check Requests</a></li>
+    <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true" ></i>&nbsp;&nbsp;&nbsp;Insert Stock</a></li>
     <br>
-    <li><a href="#"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
+    <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Check Requests</a></li>
+    <br>
+    <li><a href="#"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;View Tickets</a></li>
   </ul>
 </div>
 
@@ -53,6 +55,7 @@
     <option value="service">Service</option>
   </select>
   <select id="dropdown" name="dropdown"></select>
+  <br><br>
   <button onclick="insertData()">Insert</button>
 </div>
 <script src="../../Controller/add-warehouse.js"></script>
