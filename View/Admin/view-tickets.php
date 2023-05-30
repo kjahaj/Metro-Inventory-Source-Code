@@ -1,6 +1,6 @@
 <?php
 include "../../Model/user.php";
-include '../../Model/session.php'; 
+include '../../Model/session.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,6 +42,8 @@ include '../../Model/session.php';
             <li><a href="#"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
             <br>
             <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i> Buy Stock</a></li>
+            <br>
+            <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Insert Stock</a></li>
             <br>
             <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i> Check Requests</a></li>
             <br>

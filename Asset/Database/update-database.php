@@ -1,8 +1,6 @@
 <?php
 
-include "../../View/Login/config.php";
-
-$conn = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+include "../../Model/connection.php";
 
 //This File will update your data base will current changes by droping it and creation a new one !
 //User credencials e-mail: yourname@umt.edu.al (school email) pass: 1234;
@@ -17,7 +15,7 @@ try {
     $sql = file_get_contents($sqlFile);
     if ($conn->multi_query($sql) === TRUE) {
       $conn = null;
-      $conn = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+      $conn = mysqli_connect($servername, $username, $password, $dbname);
       echo "Database Updated :)";
     } else {
       echo "Error executing SQL file: " . $conn->error;
