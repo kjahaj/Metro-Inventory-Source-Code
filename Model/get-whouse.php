@@ -1,5 +1,5 @@
 <?php
-include "./connection.php";
+include './connection.php';
 
 // Prepare the SQL query
 $sql = "SELECT warehouse FROM `storage-units`";

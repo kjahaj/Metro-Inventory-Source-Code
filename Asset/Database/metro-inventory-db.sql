@@ -14,14 +14,18 @@ CREATE TABLE `users` (
     `userID` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(45) NOT NULL,
     `surname` VARCHAR(45) NOT NULL,
-    `e-mail` VARCHAR(45) NOT NULL,
+    `email` VARCHAR(45) NOT NULL,
     `password` VARCHAR(45) NOT NULL,
     `groupID` INT NOT NULL,
     PRIMARY KEY (`userID`),
     KEY `groupID_idx` (`groupID`),
-    CONSTRAINT `groupID` FOREIGN KEY (`groupID`)
+    CONSTRAINT `fk_groupID`
+        FOREIGN KEY (`groupID`)
         REFERENCES `user-groups` (`groupID`)
-)  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+
 
 DROP TABLE IF EXISTS `storage-units`;
 CREATE TABLE `storage-units` (
@@ -108,7 +112,7 @@ INSERT INTO `user-groups` (`groupID`, `group`) VALUES
 (5, 'FINANCE'),
 (6, 'USER');
 
-INSERT INTO `users`( `userID`, `name`, `surname`, `e-mail`, `password`, `groupID` ) VALUES
+INSERT INTO `users`( `userID`, `name`, `surname`, `email`, `password`, `groupID` ) VALUES
 ( 1, 'Klei', 'Jahaj', 'klei.jahaj21@umt.edu.al', '1234', 1 ),
 ( 2, 'Eljon', 'Zagradi', 'ezagradi20@umt.edu.al', '1234', 1 ),
 ( 3, 'Angjelos', 'Goga', 'angjelos.goga21@umt.edu.al', '1234', 1 );

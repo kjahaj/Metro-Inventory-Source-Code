@@ -1,3 +1,7 @@
+<?php
+include "../../Model/user.php";
+include '../../Model/session.php'; 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +25,7 @@
             </div>
             <div class="header">
                 <div class="user-profile">
-                    <span>Username</span>
+                    <span><?php echo $userFull; ?></span>
                     <div class="dropdown-menu">
                         <ul>
                             <li><a href="#">Profile</a></li>
@@ -76,7 +80,7 @@
         </div>
 
         <div id="overlay"></div>
-        
+
     </div>
     
 

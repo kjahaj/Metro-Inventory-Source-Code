@@ -1,3 +1,7 @@
+<?php
+include "../../Model/user.php";
+include '../../Model/session.php';
+?>
 <!DOCTYPE html>
 <html>
 
@@ -60,10 +64,10 @@
     <div class="admin-dashboard">
       <h1>Admin Dashboard</h1>
     </div>
-    
+
     <div class="header">
       <div class="user-profile">
-        <span>Username</span>
+        <span><?php echo $userFull; ?></span>
         <div class="dropdown-menu">
           <ul>
             <li><a href="#">Profile</a></li>
@@ -91,19 +95,19 @@
 
 <div class="container">
   <table id="data-table">
-  <thead>
-    <tr>    
-      <th>Item</th>
-      <th>Category</th>
-      <th>Quantity</th>
-      <th>Warehouse</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Warehouse</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 </div>
 
 

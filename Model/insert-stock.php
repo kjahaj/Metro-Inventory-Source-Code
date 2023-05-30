@@ -1,5 +1,5 @@
 <?php
-include "./connection.php";
+include './connection.php';
 
 $item = $_POST['item'];
 $category = $_POST['category'];
