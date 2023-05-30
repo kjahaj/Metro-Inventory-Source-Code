@@ -1,3 +1,7 @@
+<?php
+include "../../Model/user.php";
+include '../../Model/session.php';
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +25,7 @@
     </div>
     <div class="header">
       <div class="user-profile">
-        <span>Username</span>
+        <span><?php echo $userFull; ?></span>
         <div class="dropdown-menu">
           <ul>
             <li><a href="#">Profile</a></li>
@@ -35,7 +39,7 @@
   <ul>
     <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
     <br>
-    <li><a href="stockcheck.html"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
+    <li><a href="stockcheck.php"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
     <br>
     <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i> Buy Stock</a></li>
     <br>
@@ -45,7 +49,7 @@
     <br>
     <li><a href="view-tickets.php"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
     <br>
-    
+
   </ul>
 </div>
 

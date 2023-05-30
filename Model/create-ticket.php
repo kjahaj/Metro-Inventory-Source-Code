@@ -1,5 +1,7 @@
 <?php
-include "./connection.php";
+include './connection.php';
+include './user.php';
+include './session.php';
 
 if (isset($_POST['createTicket'])) {
     $title = $_POST['title'];
@@ -7,7 +9,7 @@ if (isset($_POST['createTicket'])) {
     $dateTimeCreated = date('Y-m-d H:i:s');
     $dateTimeModified = date('Y-m-d H:i:s');
     $group = $_POST['group'];
-    $senderID = 1;
+    $senderID = $user->getUserID();
 
     $sql =
         "INSERT INTO `tickets`

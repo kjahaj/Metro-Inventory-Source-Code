@@ -1,3 +1,7 @@
+<?php
+include "../../Model/user.php";
+include '../../Model/session.php'; 
+?>
 <!DOCTYPE html>
 <html>
 

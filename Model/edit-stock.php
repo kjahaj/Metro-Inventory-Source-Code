@@ -1,5 +1,5 @@
 <?php
-include "./connection.php";
+include './connection.php';
 
 // Retrieve the POST parameters
 $rowId = $_POST['rowId'];

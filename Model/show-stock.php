@@ -1,9 +1,9 @@
 <?php
-include "./connection.php";
+include './connection.php';
 
-$sql = "SELECT `stock-items`.itemID, `stock-items`.item, `stock-items`.category, `stock-items`.quantity, `storage-units`.warehouse
-        FROM `stock-items` 
-        JOIN `storage-units` ON `stock-items`.warehouseID = `storage-units`.warehouseID";
+$sql = "SELECT itemID, item, category, quantity, warehouse
+        FROM `stock-items` si
+        JOIN `storage-units` su ON si.warehouseID = su.warehouseID";
 
 $result = mysqli_query($conn, $sql);
 
@@ -22,5 +22,3 @@ if (mysqli_num_rows($result) > 0) {
 echo json_encode($data);
 
 mysqli_close($conn);
-
-?>

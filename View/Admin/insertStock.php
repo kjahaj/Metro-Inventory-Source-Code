@@ -1,3 +1,7 @@
+<?php
+include "../../Model/user.php";
+include '../../Model/session.php';
+?>
 <!DOCTYPE html>
 <html>
 
@@ -8,8 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
   <title>Admin</title>
 </head>
-
-
 <div class="sidebar" id='sidebar'>
   <div class="headeri">
     <button type="button" class="toggle" id="toggle">
@@ -20,7 +22,7 @@
     </div>
     <div class="header">
       <div class="user-profile">
-        <span>Username</span>
+        <span><?php echo $userFull; ?></span>
         <div class="dropdown-menu">
           <ul>
             <li><a href="#">Profile</a></li>
@@ -32,13 +34,13 @@
     </div>
   </div>
   <ul>
-    <li><a href="index.php"><i class="fa fa-home" aria-hidden="true" ></i>&nbsp;&nbsp;&nbsp;Dashboard</a></li>
+    <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a></li>
     <br>
     <li><a href="stockcheck.html"><i class="fas fa-clipboard-check" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Check Stock</a></li>
     <br>
-    <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true" ></i>&nbsp;&nbsp;&nbsp;Buy Stock</a></li>
+    <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Buy Stock</a></li>
     <br>
-    <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true" ></i>&nbsp;&nbsp;&nbsp;Insert Stock</a></li>
+    <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Insert Stock</a></li>
     <br>
     <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Check Requests</a></li>
     <br>

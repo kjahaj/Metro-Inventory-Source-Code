@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="UTF-8">
   <title>Log In Page</title>
@@ -16,7 +17,7 @@
     <form action="loginprocess.php" method="POST"><br><br>
       <div class="form-field email">
         <i class="fas fa-envelope"></i>
-        <input class="email" type="email" name="email" placeholder="Email" required = ""/>
+        <input class="email" type="email" name="email" placeholder="Email" required="" />
       </div>
 
       <div class="form-field">
@@ -28,13 +29,13 @@
         
       </div>
       <div class="form-field">
-      <button class="btn" type="submit" name="sub">Login</button>
+        <button class="btn" type="submit" name="sub">Login</button>
       </div>
       <p><b>
           <hr>
         </b></p>
       <div class="form-field">
-      <button class="btn" type="submit">UMT LOGIN</button>
+        <button class="btn" type="submit">UMT LOGIN</button>
       </div>
       
       <?php

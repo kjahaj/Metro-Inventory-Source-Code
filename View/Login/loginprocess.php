@@ -1,12 +1,7 @@
 <?php
-session_start();
 include("../../Model/connection.php");
 require_once "../../Model/user.php";
-
-if (!isset($_SESSION["login"])) {
-    header('Location: ../../View/Login/login.php');
-    exit();
-}
+session_start();
 
 if (isset($_POST['sub'])) {
     $email = $_POST['email'];
@@ -17,7 +12,6 @@ if (isset($_POST['sub'])) {
         echo "<script>alert('Please enter email and password.'); window.location.href='login.php?err=2';</script>";
         exit();
     }
-
     $stmt = mysqli_prepare(
         $conn,
         "SELECT u.userID, u.name, u.surname, u.groupID, u.password, g.group 
@@ -34,10 +28,11 @@ if (isset($_POST['sub'])) {
     if (mysqli_num_rows($res) > 0) {
         $hashedPassword = $row['password'];
         if ($password == $hashedPassword) {
-            $_SESSION["login"] = "1";
 
             // Create a User instance
             $user = new User($row['userID'],$row['name'], $row['surname'], $email, $row['groupID'], $row['group']);
+            $_SESSION["login"] = "1";
+            $_SESSION["user"] = serialize($user);
 
             // Redirect based on user's group
             switch ($row['group']) {
@@ -66,4 +61,3 @@ if (isset($_POST['sub'])) {
         exit();
     }
 }
-?>

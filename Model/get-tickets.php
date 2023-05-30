@@ -1,5 +1,5 @@
 <?php
-include "./connection.php";
+include './connection.php';
 
 $sql = "SELECT t.ticketID, t.title, t.message, t.`msg-status`, t.status, 
 CONCAT(sender.name, ' ', sender.surname) AS 'sender', t.`date-time-created`, 
