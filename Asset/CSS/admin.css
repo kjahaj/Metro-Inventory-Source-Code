@@ -4,7 +4,8 @@
 }
 
 body {
-  background-image: url("/Asset/Images/UMT-Background6.png");
+  background-image: url("/Asset/Images/UMT-Background7.png");
+  background-size: cover;
 }
 
 .headeri {
@@ -206,7 +207,6 @@ button {
   width: 50%;
   height: 2.5rem;
   text-align: center;
-  background-color: rgb(195, 191, 191);
   bottom: 10px;
 }
 #footer p{
@@ -299,6 +299,9 @@ button {
 /* #data-table tbody tr:hover {
   background-color: #f5f5f5;    kjo do shtohet me vone 
 } */
+tr th{
+  
+}
 
 
 
