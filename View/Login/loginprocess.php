@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("./config.php");
+include("../../Model/connection.php");
 if (!isset($_SESSION["login"]))
     header('Location: ../../View/Login/login.php');
 
