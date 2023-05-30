@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "metro-inventory";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
