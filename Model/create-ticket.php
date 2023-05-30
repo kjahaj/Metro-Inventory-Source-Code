@@ -10,9 +10,9 @@ if (isset($_POST['createTicket'])) {
     $senderID = 1;
 
     $sql =
-        "INSERT INTO `metro-inventory`.`tickets`
+        "INSERT INTO `tickets`
         (`title`, `message`, `date-time-created`, `date-time-modified`, `groupID`, `senderID`)
-        VALUES (?, ?, ?, ?, (SELECT `groupID` FROM `metro-inventory`.`user-groups` WHERE `group` = ?), ?)";
+        VALUES (?, ?, ?, ?, (SELECT `groupID` FROM `user-groups` WHERE `group` = ?), ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "sssssi", $title, $message, $dateTimeCreated, $dateTimeModified, $group, $senderID);
