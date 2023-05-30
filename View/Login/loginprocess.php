@@ -14,9 +14,9 @@ if (isset($_POST['sub'])) {
     }
     $stmt = mysqli_prepare(
         $conn,
-        "SELECT u.userID, u.name, u.surname, u.groupID, u.password, g.group 
+        "SELECT u.userID, u.name, u.surname, u.groupID, u.password, g.ugroup 
         FROM `users` u 
-        INNER JOIN `user-groups` g ON u.groupID = g.groupID
+        INNER JOIN `ugroups` g ON u.groupID = g.groupID
         WHERE `email` = ?;"
     );
 
@@ -30,12 +30,12 @@ if (isset($_POST['sub'])) {
         if ($password == $hashedPassword) {
 
             // Create a User instance
-            $user = new User($row['userID'],$row['name'], $row['surname'], $email, $row['groupID'], $row['group']);
+            $user = new User($row['userID'],$row['name'], $row['surname'], $email, $row['groupID'], $row['ugroup']);
             $_SESSION["login"] = "1";
             $_SESSION["user"] = serialize($user);
 
             // Redirect based on user's group
-            switch ($row['group']) {
+            switch ($row['ugroup']) {
                 case "ADMIN":
                     header("Location: ../../View/Admin/index.php");
                     break;

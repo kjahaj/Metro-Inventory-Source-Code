@@ -1,11 +1,11 @@
-DROP DATABASE  IF EXISTS `metro-inventory`;
+DROP DATABASE IF EXISTS `metro-inventory`;
 CREATE SCHEMA `metro-inventory`;
 USE `metro-inventory`;
 
-DROP TABLE IF EXISTS `user-groups`;
-CREATE TABLE `user-groups` (
+DROP TABLE IF EXISTS `ugroups`;
+CREATE TABLE `ugroups` (
     `groupID` INT NOT NULL AUTO_INCREMENT,
-    `group` VARCHAR(45) NOT NULL,
+    `ugroup` VARCHAR(45) NOT NULL,
     PRIMARY KEY (`groupID`)
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
 
@@ -19,16 +19,14 @@ CREATE TABLE `users` (
     `groupID` INT NOT NULL,
     PRIMARY KEY (`userID`),
     KEY `groupID_idx` (`groupID`),
-    CONSTRAINT `fk_groupID`
-        FOREIGN KEY (`groupID`)
-        REFERENCES `user-groups` (`groupID`)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+    CONSTRAINT `fk_groupID` FOREIGN KEY (`groupID`)
+        REFERENCES `ugroups` (`groupID`)
+        ON DELETE CASCADE ON UPDATE CASCADE
+)  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
 
 
-DROP TABLE IF EXISTS `storage-units`;
-CREATE TABLE `storage-units` (
+DROP TABLE IF EXISTS `storageUnits`;
+CREATE TABLE `storageUnits` (
     `warehouseID` INT NOT NULL AUTO_INCREMENT,
     `warehouse` VARCHAR(45) NOT NULL,
     `address` VARCHAR(45) NOT NULL,
@@ -36,8 +34,8 @@ CREATE TABLE `storage-units` (
     PRIMARY KEY (`warehouseID`)
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
 
-DROP TABLE IF EXISTS `stock-items`;
-CREATE TABLE `stock-items` (
+DROP TABLE IF EXISTS `stockItems`;
+CREATE TABLE `stockItems` (
     `itemID` INT NOT NULL AUTO_INCREMENT,
     `item` VARCHAR(45) NOT NULL,
     `category` ENUM('IT', 'SERVICE') NOT NULL,
@@ -46,27 +44,29 @@ CREATE TABLE `stock-items` (
     PRIMARY KEY (`itemID`),
     KEY `warehouseID_idx` (`warehouseID`),
     CONSTRAINT `warehouseID` FOREIGN KEY (`warehouseID`)
-        REFERENCES `storage-units` (`warehouseID`)
+        REFERENCES `storageUnits` (`warehouseID`)
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
 
 DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
-  `ticketID` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(20) NOT NULL,
-  `message` varchar(300) NOT NULL DEFAULT '',
-  `msg-status` enum('READ','UNREAD') NOT NULL DEFAULT 'UNREAD',
-  `status` enum('ACTIVE','COMPLETED') NOT NULL DEFAULT 'ACTIVE',
-  `date-time-created` varchar(45) NOT NULL,
-  `date-time-modified` varchar(45) NOT NULL,
-  `groupID` int NOT NULL,
-  `senderID` int NOT NULL,
-  `user-modifier-ID` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ticketID`),
-  KEY `group-ticket-ID_idx` (`groupID`),
-  KEY `user-ticket-ID_idx` (`senderID`),
-  CONSTRAINT `group-ticket-ID` FOREIGN KEY (`groupID`) REFERENCES `user-groups` (`groupID`),
-  CONSTRAINT `sender-ticket-ID` FOREIGN KEY (`senderID`) REFERENCES `users` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    `ticketID` INT NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(20) NOT NULL,
+    `message` VARCHAR(300) NOT NULL DEFAULT '',
+    `msgStatus` ENUM('READ', 'UNREAD') NOT NULL DEFAULT 'UNREAD',
+    `status` ENUM('ACTIVE', 'COMPLETED') NOT NULL DEFAULT 'ACTIVE',
+    `datetimeCreated` VARCHAR(45) NOT NULL,
+    `datetimeModified` VARCHAR(45) NOT NULL,
+    `groupID` INT NOT NULL,
+    `senderID` INT NOT NULL,
+    `umodifierID` INT NOT NULL DEFAULT '0',
+    PRIMARY KEY (`ticketID`),
+    KEY `group_ticket_ID_idx` (`groupID`),
+    KEY `user_ticket_ID_idx` (`senderID`),
+    CONSTRAINT `groupTicketID` FOREIGN KEY (`groupID`)
+        REFERENCES `ugroups` (`groupID`),
+    CONSTRAINT `senderTicketID` FOREIGN KEY (`senderID`)
+        REFERENCES `users` (`userID`)
+)  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
 
 DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE `transactions` (
@@ -75,42 +75,41 @@ CREATE TABLE `transactions` (
     `date-time` VARCHAR(30) NOT NULL,
     `notes` VARCHAR(200) NOT NULL DEFAULT '',
     `userID` INT NOT NULL,
-    `warehouse-from-ID` INT NOT NULL,
-    `warehouse-to-ID` INT NOT NULL,
+    `whfromID` INT NOT NULL,
+    `wtoID` INT NOT NULL,
     PRIMARY KEY (`transactionID`),
     KEY `userID_idx` (`userID`),
-    KEY `warehouse-from_idx` (`warehouse-from-ID`),
-    KEY `warehouse-to_idx` (`warehouse-to-ID`),
+    KEY `warehouse_from_idx` (`whfromID`),
+    KEY `warehouse_to_idx` (`wtoID`),
     CONSTRAINT `userID` FOREIGN KEY (`userID`)
         REFERENCES `users` (`userID`),
-    CONSTRAINT `warehouse-from` FOREIGN KEY (`warehouse-from-ID`)
-        REFERENCES `storage-units` (`warehouseID`),
-    CONSTRAINT `warehouse-to` FOREIGN KEY (`warehouse-to-ID`)
-        REFERENCES `storage-units` (`warehouseID`)
+    CONSTRAINT `warehouse_from` FOREIGN KEY (`whfromID`)
+        REFERENCES `storageUnits` (`warehouseID`),
+    CONSTRAINT `warehouse_to` FOREIGN KEY (`wtoID`)
+        REFERENCES `storageUnits` (`warehouseID`)
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
 
-DROP TABLE IF EXISTS `transaction-items`;
-CREATE TABLE `transaction-items` (
+DROP TABLE IF EXISTS `transactionItems`;
+CREATE TABLE `transactionItems` (
     `transaction-item-ID` INT NOT NULL AUTO_INCREMENT,
     `quantity` INT NOT NULL,
     `itemID` INT NOT NULL,
     `transactionID` INT NOT NULL,
     PRIMARY KEY (`transaction-item-ID`),
-    KEY `item-transaction-ID_idx` (`itemID`),
+    KEY `item_transaction_ID_idx` (`itemID`),
     KEY `transactionID_idx` (`transactionID`),
     CONSTRAINT `item-transaction-ID` FOREIGN KEY (`itemID`)
-        REFERENCES `stock-items` (`itemID`),
+        REFERENCES `stockItems` (`itemID`),
     CONSTRAINT `transactionID` FOREIGN KEY (`transactionID`)
         REFERENCES `transactions` (`transactionID`)
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4;
 
-INSERT INTO `user-groups` (`groupID`, `group`) VALUES
+INSERT INTO `ugroups` (`groupID`, `ugroup`) VALUES
 (1, 'ADMIN'),
 (2, 'IT'),
 (3, 'SERVICE'),
-(4, 'HR'),
-(5, 'FINANCE'),
-(6, 'USER');
+(4, 'FINANCE'),
+(5, 'USER');
 
 INSERT INTO `users`( `userID`, `name`, `surname`, `email`, `password`, `groupID` ) VALUES
 ( 1, 'Klei', 'Jahaj', 'klei.jahaj21@umt.edu.al', '1234', 1 ),

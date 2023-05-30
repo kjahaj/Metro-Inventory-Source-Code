@@ -5,7 +5,7 @@ $itemID = $_POST['itemID'];
 
 print($itemID);
 
-$sql = "DELETE FROM `stock-items` WHERE itemID = ?";
+$sql = "DELETE FROM `stockitems` WHERE itemID = ?";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $itemID);

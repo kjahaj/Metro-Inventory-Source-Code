@@ -2,7 +2,7 @@
 include './connection.php';
 
 // Prepare the SQL query
-$sql = "SELECT warehouse FROM `storage-units`";
+$sql = "SELECT warehouse FROM `storageunits`";
 
 // Execute the query
 $result = mysqli_query($conn, $sql);

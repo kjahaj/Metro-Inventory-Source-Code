@@ -6,13 +6,13 @@ $category = $_POST['category'];
 $quantity = $_POST['quantity'];
 $warehouse = $_POST['warehouse'];
 
-$wIDQuery = "SELECT warehouseID FROM `storage-units` WHERE warehouse = '$warehouse'";
+$wIDQuery = "SELECT warehouseID FROM `storageunits` WHERE warehouse = '$warehouse'";
 $wIDResult = mysqli_query($conn, $wIDQuery);
 $wIDRow = mysqli_fetch_assoc($wIDResult);
 $wID = $wIDRow['warehouseID'];
 
 // Prepare the SQL query
-$sql = "INSERT INTO `stock-items` (item, category, quantity, warehouseID) VALUES (?, ?, ?, ?)";
+$sql = "INSERT INTO `stockitems` (item, category, quantity, warehouseID) VALUES (?, ?, ?, ?)";
 
 // Bind the parameters
 $stmt = mysqli_prepare($conn, $sql);
