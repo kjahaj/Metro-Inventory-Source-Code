@@ -1,6 +1,27 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() { 
+  fetchAdittionalData();
   fetchData();
+ 
 });
+
+function fetchAdittionalData() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../../Model/add-quantity.php", true);
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        
+          var data = JSON.parse(xhr.responseText);
+          // Display the data in the dropdown select
+          var select = document.getElementById("dropdown");
+          for (var i = 0; i < data.length; i++) {
+              var option = document.createElement("option");
+              option.text = data[i];
+              select.add(option);
+          }
+      }
+  };
+  xhr.send();
+}
 
 function fetchData() {
   var xhr = new XMLHttpRequest();
@@ -219,8 +240,3 @@ function saveAndExitEditing(row, itemCell, categoryCell, quantityCell, warehouse
 // Attach the click event listener to the button
 var button = document.getElementById("edit-button");
 button.addEventListener("click", createButtonClickHandler("example-row"));
-
-
-
-
-

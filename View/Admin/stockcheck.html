@@ -8,6 +8,50 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
   <title>Admin</title>
 </head>
+<style> 
+/* KALOJE TEK CSS ADMIN */
+    .open-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Style for the pop-up */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      z-index: 9999;
+    }
+
+    /* Style for the input bars */
+    .input-bar {
+      margin-bottom: 10px;
+    }
+
+    /* Style for the submit button */
+    .submit-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 <div class="sidebar" id='sidebar'>
   <div class="headeri">
     <button type="button" class="toggle" id="toggle">
@@ -62,31 +106,30 @@
 </table>
 </div>
 
-<script src="../../Controller/show-stock.js"></script>
 
+<button class="open-button" onclick="showPopup()">Open Pop-up</button>
 
-<footer id="footer">
-  <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>
-</footer>
+  <div id="popupContainer" style="display: none;">
+    <div class="popup">
+      <div class="input-bar">
+        Select the item <select id="dropdown" name="dropdown"></select>
+      </div>
+      <div class="input-bar">
+        <label for="input2"></label>
+       Quantity: <input type="number" id="input2">
+      </div>
+      <button class="submit-button" id="edit-quantity" onclick="insertQuantity()">Submit</button>
+    </div>
+  </div>
 
-<script>
-  var btn = document.querySelector('.toggle');
-  var btnst = true;
-  btn.onclick = function() {
-    if (btnst == true) {
-      document.querySelector('.toggle span').classList.add('toggle');
-      document.getElementById('sidebar').classList.add('sidebarshow');
-      btnst = false;
-    } else if (btnst == false) {
-      document.querySelector('.toggle span').classList.remove('toggle');
-      document.getElementById('sidebar').classList.remove('sidebarshow');
-      btnst = true;
-    }
-  }
-</script>
-<script rel="script" href="insertStockContr.js">
+  <script src="../../Controller/show-stock.js"></script>
+  <script src="../../Controller/add-quantity.js"></script>
 
-</script>
+  <script>
+    function showPopup() {
+      document.getElementById("popupContainer").style.display = "block";
+    }  
+  </script>
 
 </body>
 
