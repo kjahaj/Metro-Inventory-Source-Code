@@ -196,3 +196,10 @@ form .form-field i {
   }
 }
 
+#eye:hover{
+  cursor: pointer;
+}
+#eye{
+  left: 310px;
+}
+
