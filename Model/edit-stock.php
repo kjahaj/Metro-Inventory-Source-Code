@@ -7,12 +7,12 @@ $item = $_POST['item'];
 $category = $_POST['category'];
 $warehouse = $_POST['warehouse'];
 
-$wIDQuery = "SELECT warehouseID FROM `storage-units` WHERE warehouse = '$warehouse'";
+$wIDQuery = "SELECT warehouseID FROM `storageunits` WHERE warehouse = '$warehouse'";
 $wIDResult = mysqli_query($conn, $wIDQuery);
 $wIDRow = mysqli_fetch_assoc($wIDResult);
 $wID = $wIDRow['warehouseID'];
 
-$sql = "UPDATE `stock-items` 
+$sql = "UPDATE `stockitems` 
         SET item = '$item', 
         category = '$category', 
         warehouseID = '$wID'

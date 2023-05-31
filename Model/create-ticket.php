@@ -13,8 +13,8 @@ if (isset($_POST['createTicket'])) {
 
     $sql =
         "INSERT INTO `tickets`
-        (`title`, `message`, `date-time-created`, `date-time-modified`, `groupID`, `senderID`)
-        VALUES (?, ?, ?, ?, (SELECT `groupID` FROM `user-groups` WHERE `group` = ?), ?)";
+        (`title`, `message`, `datetimeCreated`, `datetimeModified`, `groupID`, `senderID`)
+        VALUES (?, ?, ?, ?, (SELECT `groupID` FROM `ugroups` WHERE `ugroup` = ?), ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "sssssi", $title, $message, $dateTimeCreated, $dateTimeModified, $group, $senderID);

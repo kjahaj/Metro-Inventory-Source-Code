@@ -4,7 +4,7 @@ include "./connection.php";
 $item = $_POST['item'];
 $quantity = $_POST['quantity'];
 
-$iIDQuery = "SELECT itemID, quantity FROM `stock-items` WHERE item = '$item'";
+$iIDQuery = "SELECT itemID, quantity FROM `stockitems` WHERE item = '$item'";
 $iIDResult = mysqli_query($conn, $iIDQuery);
 $iIDRow = mysqli_fetch_assoc($iIDResult);
 $iID = $iIDRow['itemID'];
@@ -18,7 +18,7 @@ if ($newQuantity < 0) {
     exit;
 }
 
-$sql = "UPDATE `stock-items` 
+$sql = "UPDATE `stockitems` 
         SET quantity = $newQuantity
         WHERE itemID = $iID";
 

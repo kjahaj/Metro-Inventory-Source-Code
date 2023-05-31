@@ -2,7 +2,7 @@
 include "./connection.php";
 
 // Prepare the SQL query
-$sql = "SELECT item FROM `stock-items`";
+$sql = "SELECT item FROM stockitems;";
 
 // Execute the query
 $result = mysqli_query($conn, $sql);

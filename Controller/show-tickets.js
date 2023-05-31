@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function fetchData() {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "../../Model/get-tickets.php?group_id=1", true);
+  xhr.open("GET", "../../Model/get-tickets.php", true);
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var data = JSON.parse(xhr.responseText);
@@ -50,7 +50,7 @@ function displayTickets(data) {
 
     var creationDate = document.createElement("p");
     creationDate.classList.add("creation-date");
-    creationDate.textContent = data[i]["date-time-created"];
+    creationDate.textContent = data[i].datetimeCreated;
     rightContainer.appendChild(creationDate);
 
     var senderLabel = document.createElement("p");

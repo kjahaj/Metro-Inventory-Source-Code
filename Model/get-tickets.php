@@ -1,13 +1,15 @@
 <?php
 include './connection.php';
 
-$sql = "SELECT t.ticketID, t.title, t.message, t.`msg-status`, t.status, 
-CONCAT(sender.name, ' ', sender.surname) AS 'sender', t.`date-time-created`, 
-CONCAT(modifier.name,'', modifier.surname) AS 'modifier', t.`date-time-modified` 
-FROM tickets t INNER JOIN `user-groups` ug ON ug.groupID = t.groupID 
+$sql = "SELECT t.ticketID, t.title, t.message, t.`msgStatus`, t.status, 
+CONCAT(sender.name, ' ', sender.surname) AS 'sender', t.`datetimeCreated`, 
+CONCAT(modifier.name,' ', modifier.surname) AS 'modifier', t.`datetimeModified` 
+FROM tickets t INNER JOIN `ugroups` ug ON ug.groupID = t.groupID 
 INNER JOIN users sender ON sender.userID = t.senderID 
-LEFT JOIN users modifier ON modifier.userID = `t`.`user-modifier-ID`
+LEFT JOIN users modifier ON modifier.userID = `t`.`umodifierID`
 ORDER BY t.ticketID DESC;";
+
+// var_dump($sql);
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_execute($stmt);
 
