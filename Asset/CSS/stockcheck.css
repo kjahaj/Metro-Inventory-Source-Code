@@ -1,0 +1,61 @@
+* {
+    margin:0;
+    padding:0;
+  }
+  .open-button {
+    background-color: #2f40a0;
+    border: none;
+  color: white;
+  padding: 20px 35px;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+    
+  }
+  .buttonContainer{
+    margin-left: 50%;
+    height: 100px;
+    
+  }
+  .buttonContainer button{
+    display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  height: 100px;
+  }
+  
+   
+
+  /* Style for the pop-up */
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 9999;
+  }
+
+  /* Style for the input bars */
+  .input-bar {
+    margin-bottom: 10px;
+  }
+
+  /* Style for the submit button */
+  .submit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }

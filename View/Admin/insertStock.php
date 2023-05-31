@@ -36,7 +36,7 @@ include '../../Model/session.php';
   <ul>
     <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a></li>
     <br>
-    <li><a href="stockcheck.html"><i class="fas fa-clipboard-check" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Check Stock</a></li>
+    <li><a href="stockcheck.php"><i class="fas fa-clipboard-check" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Check Stock</a></li>
     <br>
     <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Buy Stock</a></li>
     <br>
