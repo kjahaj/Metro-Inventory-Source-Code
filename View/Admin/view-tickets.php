@@ -78,7 +78,7 @@ include '../../Model/session.php';
 }
 
 .container button {
-    padding: 10px 20px;
+    padding: 7px 20px;
     background-color: dodgerblue;
     color: white;
     border: none;
@@ -149,7 +149,7 @@ select {
 button[type="submit"] {
     background-color: dodgerblue;
     color: #fff;
-    padding: 10px 20px;
+    padding: 7px 20px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
