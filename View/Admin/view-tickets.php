@@ -284,41 +284,14 @@ include '../../Model/session.php';
     <div id="overlay"></div>
   </div>
 
-  <div id="ticket-container">
-
-    <div class="ticket">
-      <div class="details">
-        <div class="title">Ticket Title: <span id="title">Sample Ticket</span></div>
-        <div>Sender: <span id="sender">John Doe</span></div>
-        <div>Date of Creation: <span id="creation_date">2023-05-31</span></div>
-      </div>
-      <div class="actions">
-        <div class="status" id="status">Open</div>
-        <button class="button" onclick="viewTicket()">View Ticket</button>
-      </div>
-    </div>
-
-    <div class="ticket">
-      <div class="details">
-        <div class="title">Ticket Title: <span id="title">Sample Ticket</span></div>
-        <div>Sender: <span id="sender">John Doe</span></div>
-        <div>Date of Creation: <span id="creation_date">2023-05-31</span></div>
-      </div>
-      <div class="actions">
-        <div class="status" id="status">Open</div>
-        <button class="button" onclick="viewTicket()">View Ticket</button>
-      </div>
-    </div>
-
-
-  </div>
+  <div id="ticket-container"></div>
 </div>
 
 <footer id="footer">
   <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>
 </footer>
 
-<!-- <script src="../../Controller/show-tickets.js"></script> -->
+<script src="../../Controller/show-tickets.js"></script>
 
 <script>
   var btn = document.querySelector('.toggle');
@@ -348,6 +321,7 @@ include '../../Model/session.php';
   function viewTicket() {
     alert("View Ticket");
   }
+  
 </script>
 
 </body>
