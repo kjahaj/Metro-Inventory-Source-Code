@@ -14,14 +14,22 @@ include '../../Model/session.php';
 
   <title>Admin</title>
   <style>
+    .main-contaioner {
+      display: fixed;
+      justify-content: center;
+      align-items: center;
+      margin-left: 15%;
+      margin-top: 4%;
+    }
+
     .createT {
       display: flex;
       justify-content: right;
       align-items: center;
-      height: 80px;
+      height: 70px;
       background-color: white;
       margin-top: 8%;
-      margin-left: 20%;
+      margin-left: 5%;
       margin-right: 5%;
     }
 
@@ -177,37 +185,41 @@ include '../../Model/session.php';
   </ul>
 </div>
 
-<div class="createT">
-  <button id="openCT" class="create-ticket-button">Create Ticket</button>
+<div class="main-contaioner">
 
-  <div id="myPopup" class="popup">
-    <span class="close">&times;</span>
-    <h2>Create a Ticket</h2>
+  <div class="createT">
+    <button id="openCT" class="create-ticket-button">Create Ticket</button>
 
-    <form action="../../Model/create-ticket.php" method="POST">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
-      </div>
+    <div id="myPopup" class="popup">
+      <span class="close">&times;</span>
+      <h2>Create a Ticket</h2>
 
-      <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
+      <form action="../../Model/create-ticket.php" method="POST">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+        </div>
 
-      <div class="form-group">
-        <label for="group">Group:</label>
-        <select id="group" name="group" required>
-          <option value="SERVICE">SERVICE</option>
-          <option value="IT">IT</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
 
-      <button type="submit" name="createTicket">Submit</button>
-    </form>
+        <div class="form-group">
+          <label for="group">Group:</label>
+          <select id="group" name="group" required>
+            <option value="SERVICE">SERVICE</option>
+            <option value="IT">IT</option>
+          </select>
+        </div>
+
+        <button type="submit" name="createTicket">Submit</button>
+      </form>
+    </div>
+
+    <div id="overlay"></div>
   </div>
 
-  <div id="overlay"></div>
 </div>
 
 <footer id="footer">
