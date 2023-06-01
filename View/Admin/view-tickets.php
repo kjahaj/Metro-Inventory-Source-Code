@@ -19,7 +19,21 @@ include '../../Model/session.php';
       justify-content: center;
       align-items: center;
       margin-left: 15%;
-      margin-top: 4%;
+      margin-top: 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    #ticket-container {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      overflow-x: unset;
+      align-items: center;
+      background-color: white;
+      margin-top: 10px;
     }
 
     .createT {
@@ -29,8 +43,6 @@ include '../../Model/session.php';
       height: 70px;
       background-color: white;
       margin-top: 8%;
-      margin-left: 5%;
-      margin-right: 5%;
     }
 
     .create-ticket-button {
@@ -144,6 +156,58 @@ include '../../Model/session.php';
       backdrop-filter: blur(5px);
       z-index: 1;
     }
+
+    .ticket {
+      margin-top: 10px;
+      margin-left: 5%;
+      margin-right: 5%;
+      width: 90%;
+      margin-bottom: 10px;
+      align-items: center;
+      display: flex;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .details {
+      font-size: 15px;
+      flex: 1;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    .status {
+      font-size: 15px;
+      font-style: italic;
+      color: green;
+    }
+
+    .closed {
+      color: red;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .button {
+      width: auto;
+      background-color: #42d6a4;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 15px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
   </style>
 </head>
 
@@ -220,11 +284,41 @@ include '../../Model/session.php';
     <div id="overlay"></div>
   </div>
 
+  <div id="ticket-container">
+
+    <div class="ticket">
+      <div class="details">
+        <div class="title">Ticket Title: <span id="title">Sample Ticket</span></div>
+        <div>Sender: <span id="sender">John Doe</span></div>
+        <div>Date of Creation: <span id="creation_date">2023-05-31</span></div>
+      </div>
+      <div class="actions">
+        <div class="status" id="status">Open</div>
+        <button class="button" onclick="viewTicket()">View Ticket</button>
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="details">
+        <div class="title">Ticket Title: <span id="title">Sample Ticket</span></div>
+        <div>Sender: <span id="sender">John Doe</span></div>
+        <div>Date of Creation: <span id="creation_date">2023-05-31</span></div>
+      </div>
+      <div class="actions">
+        <div class="status" id="status">Open</div>
+        <button class="button" onclick="viewTicket()">View Ticket</button>
+      </div>
+    </div>
+
+
+  </div>
 </div>
 
 <footer id="footer">
   <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>
 </footer>
+
+<!-- <script src="../../Controller/show-tickets.js"></script> -->
 
 <script>
   var btn = document.querySelector('.toggle');
@@ -250,6 +344,10 @@ include '../../Model/session.php';
     document.getElementById("myPopup").style.display = "none";
     document.getElementById("overlay").style.display = "none";
   });
+
+  function viewTicket() {
+    alert("View Ticket");
+  }
 </script>
 
 </body>
