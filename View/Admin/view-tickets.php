@@ -39,6 +39,103 @@ include '../../Model/session.php';
       margin-right: 5%;
       cursor: pointer;
     }
+
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 400px;
+      padding: 30px;
+      background-color: #e1f0f7;
+      border-radius: 4px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+      align-items: left;
+    }
+
+    .popup h2 {
+      margin-bottom: 20px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: #888;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #555;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .popup select {
+      width: auto;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .popup textarea {
+      width: 100%;
+      height: 150px;
+      resize: vertical;
+      min-height: 50px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    button[type="submit"] {
+      width: 50%;
+      height: auto;
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 25%;
+      margin-right: 25%;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 128, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 1;
+    }
   </style>
 </head>
 
@@ -81,7 +178,36 @@ include '../../Model/session.php';
 </div>
 
 <div class="createT">
-  <button class="create-ticket-button">Create Ticket</button>
+  <button id="openCT" class="create-ticket-button">Create Ticket</button>
+
+  <div id="myPopup" class="popup">
+    <span class="close">&times;</span>
+    <h2>Create a Ticket</h2>
+
+    <form action="../../Model/create-ticket.php" method="POST">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="group">Group:</label>
+        <select id="group" name="group" required>
+          <option value="SERVICE">SERVICE</option>
+          <option value="IT">IT</option>
+        </select>
+      </div>
+
+      <button type="submit" name="createTicket">Submit</button>
+    </form>
+  </div>
+
+  <div id="overlay"></div>
 </div>
 
 <footer id="footer">
@@ -102,6 +228,16 @@ include '../../Model/session.php';
       btnst = true;
     }
   }
+
+  document.getElementById("openCT").addEventListener("click", function() {
+    document.getElementById("myPopup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+  });
+
+  document.getElementsByClassName("close")[0].addEventListener("click", function() {
+    document.getElementById("myPopup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+  });
 </script>
 
 </body>
