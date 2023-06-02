@@ -15,60 +15,78 @@ function fetchData() {
 }
 
 function displayTickets(data) {
-  var ticketContainer = document.querySelector("#ticket-container");
-  ticketContainer.classList.add("horizontal");
+  var ticketContainer = document.getElementById('ticket-container');
 
   for (var i = 0; i < data.length; i++) {
-    var ticket = document.createElement("div");
-    ticket.classList.add("ticket");
-
-    var leftContainer = document.createElement("div");
-    leftContainer.classList.add("left-container");
-
-    var titleStatusContainer = document.createElement("div");
-    titleStatusContainer.classList.add("title-status-container");
-
-    var title = document.createElement("h3");
-    title.textContent = data[i].title;
-    title.classList.add("title");
-    titleStatusContainer.appendChild(title);
-
-    var status = document.createElement("span");
-    status.classList.add("status");
-    status.textContent = "( " + data[i]["status"] +" )";
-    titleStatusContainer.appendChild(status);
-
-    leftContainer.appendChild(titleStatusContainer);
-
-    var rightContainer = document.createElement("div");
-    rightContainer.classList.add("right-container");
-
-    var creationDateLabel = document.createElement("p");
-    creationDateLabel.classList.add("label");
-    creationDateLabel.textContent = "Date Created";
-    rightContainer.appendChild(creationDateLabel);
-
-    var creationDate = document.createElement("p");
-    creationDate.classList.add("creation-date");
-    creationDate.textContent = data[i].datetimeCreated;
-    rightContainer.appendChild(creationDate);
-
-    var senderLabel = document.createElement("p");
-    senderLabel.classList.add("label");
-    senderLabel.textContent = "Sender";
-    rightContainer.appendChild(senderLabel);
-
-    var sender = document.createElement("p");
-    sender.classList.add("sender");
-    sender.textContent = data[i]["sender"];
-    rightContainer.appendChild(sender);
-
-    ticket.appendChild(leftContainer);
-    ticket.appendChild(rightContainer);
-
-    ticketContainer.appendChild(ticket);
+    createTicket(data[i], ticketContainer);
   }
 }
 
+function createTicket(item, ticketContainer) {
+ // Create the ticket element
+ var ticket = document.createElement('div');
+ ticket.setAttribute('class', 'ticket');
+
+ // Create the details section of the ticket
+ var details = document.createElement('div');
+ details.setAttribute('class', 'details');
+
+ // Create the title section of the ticket
+ var title = document.createElement('div');
+ title.setAttribute('class', 'title');
+ var titleSpan = document.createElement('span');
+ titleSpan.setAttribute('id', 'title');
+ titleSpan.textContent = item.title;
+ title.appendChild(titleSpan);
+ details.appendChild(title);
+
+ // Create the sender section of the ticket
+ var sender = document.createElement('div');
+ sender.textContent = 'Sender: ';
+ var senderSpan = document.createElement('span');
+ senderSpan.setAttribute('id', 'sender');
+ senderSpan.textContent = item.sender;
+ sender.appendChild(senderSpan);
+ details.appendChild(sender);
+
+ // Create the creation date section of the ticket
+ var creationDate = document.createElement('div');
+ creationDate.textContent = 'Date of Creation: ';
+ var creationDateSpan = document.createElement('span');
+ creationDateSpan.setAttribute('id', 'creation_date');
+ creationDateSpan.textContent = item.datetimeCreated;
+ creationDate.appendChild(creationDateSpan);
+ details.appendChild(creationDate);
+
+ ticket.appendChild(details);
+
+ // Create the actions section of the ticket
+ var actions = document.createElement('div');
+ actions.setAttribute('class', 'actions');
+
+ // Create the status section of the ticket
+ var status = document.createElement('div');
+ status.setAttribute('class', 'status');
+ status.setAttribute('id', 'status');
+ status.textContent = item.status;
+ actions.appendChild(status);
+
+ // Create the group text element
+ var groupText = document.createElement('div');
+ groupText.textContent = item.ugroup;
+ actions.appendChild(groupText);
+
+ // Create the "View Ticket" button of the ticket
+ var viewButton = document.createElement('button');
+ viewButton.setAttribute('class', 'button');
+ viewButton.setAttribute('onclick', 'viewTicket()');
+ viewButton.textContent = 'View Ticket';
+ actions.appendChild(viewButton);
+
+ ticket.appendChild(actions);
+
+ // Append the ticket to the ticket container
+ ticketContainer.appendChild(ticket);
+}
 
 
