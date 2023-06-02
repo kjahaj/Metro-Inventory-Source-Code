@@ -26,18 +26,18 @@
         <span class="passSpan">
           <i class="fas fa-eye" id="eye" onclick="showPass()"></i>
         </span>
-        
+
       </div>
       <div class="form-field">
-        <button class="btn" type="submit" name="sub">Login</button>
+        <button id="logInBtn" class="btn" type="submit" name="sub">Login</button>
       </div>
       <p><b>
           <hr>
         </b></p>
       <div class="form-field">
-        <button class="btn" type="submit">UMT LOGIN</button>
+        <button id="logInUMTBtn" class="btn" type="submit">UMT LOGIN</button>
       </div>
-      
+
       <?php
       if (isset($_REQUEST["err"]))
         $msg = "Invalid username or Password";
@@ -49,23 +49,47 @@
         ?>
     </form>
   </div>
+
+  <script>
+    window.onload = function() {
+      var file = '../../../config.php';
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('HEAD', file, false);
+      xhr.send();
+
+      var button = document.getElementById('logInBtn');
+      var buttonUMT = document.getElementById('logInUMTBtn');
+      if (xhr.status != 200) {
+        var instructions = "Please make sure your file contains this variables: \n\n";
+        instructions += "$servername\n";
+        instructions += "$username\n";
+        instructions += "$password\n";
+        instructions += "$dbname\n";
+        alert("File config.php does not exist!\n\n" + instructions);
+        button.disabled = true;
+        buttonUMT.disabled = true;
+      }
+    };
+  </script>
+
   <script>
     let state = false;
-function showPass(){
-  const passwordInput = document.getElementById("password");
-  const eyeThing = document.getElementById("eye");
-    if(state){
-        passwordInput.setAttribute("type","password");
+
+    function showPass() {
+      const passwordInput = document.getElementById("password");
+      const eyeThing = document.getElementById("eye");
+      if (state) {
+        passwordInput.setAttribute("type", "password");
         eyeThing.style.color = "grey";
         state = false;
-    }
-    else{
-        passwordInput.setAttribute("type","text");
+      } else {
+        passwordInput.setAttribute("type", "text");
         eyeThing.style.color = "dodgerblue";
         state = true;
+      }
+
     }
-    
-}
   </script>
 
 

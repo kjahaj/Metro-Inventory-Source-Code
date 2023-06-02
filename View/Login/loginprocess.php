@@ -1,4 +1,5 @@
 <?php
+include('../../../config.php');
 include("../../Model/connection.php");
 require_once "../../Model/user.php";
 session_start();

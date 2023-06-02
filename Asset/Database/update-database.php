@@ -1,13 +1,7 @@
 <?php
 
+include "../../../config.php";
 include "../../Model/connection.php";
-
-//This File will update your data base will current changes by droping it and creation a new one !
-//User credencials e-mail: yourname@umt.edu.al (school email) pass: 1234;
-
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
 
 try {
   $sqlFile = "metro-inventory-db.sql";
