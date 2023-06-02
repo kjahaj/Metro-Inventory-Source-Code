@@ -18,7 +18,7 @@ include '../../Model/session.php';
       display: fixed;
       justify-content: center;
       align-items: center;
-      margin-left: 15%;
+      margin-left: 0%;
       margin-top: 5%;
       padding-left: 5%;
       padding-right: 5%;
@@ -300,10 +300,14 @@ include '../../Model/session.php';
     if (btnst == true) {
       document.querySelector('.toggle span').classList.add('toggle');
       document.getElementById('sidebar').classList.add('sidebarshow');
+      var div = document.getElementsByClassName("main-contaioner")[0];
+      div.style.marginLeft = "15%";
       btnst = false;
     } else if (btnst == false) {
       document.querySelector('.toggle span').classList.remove('toggle');
       document.getElementById('sidebar').classList.remove('sidebarshow');
+      var div = document.getElementsByClassName("main-contaioner")[0];
+      div.style.marginLeft = "0%";
       btnst = true;
     }
   }
@@ -321,7 +325,6 @@ include '../../Model/session.php';
   function viewTicket() {
     alert("View Ticket");
   }
-  
 </script>
 
 </body>
