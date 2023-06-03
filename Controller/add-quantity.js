@@ -18,4 +18,5 @@ function insertQuantity(){
     var params = "item=" + encodeURIComponent(item) + "&quantity=" + encodeURIComponent(quantity);
 
     xhr.send(params);
+    print(xhr);
 }

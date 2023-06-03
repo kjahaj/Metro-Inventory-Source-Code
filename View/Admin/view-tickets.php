@@ -152,8 +152,8 @@ include '../../Model/session.php';
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 128, 0, 0.5);
-      backdrop-filter: blur(5px);
+      /* background-color: rgba(0, 128, 0, 0.5); */
+      backdrop-filter: blur(3px);
       z-index: 1;
     }
 

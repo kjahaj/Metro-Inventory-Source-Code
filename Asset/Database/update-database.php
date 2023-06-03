@@ -1,5 +1,4 @@
 <?php
-
 include "../../../config.php";
 include "../../Model/connection.php";
 
