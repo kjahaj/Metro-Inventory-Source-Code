@@ -321,10 +321,6 @@ include '../../Model/session.php';
     document.getElementById("myPopup").style.display = "none";
     document.getElementById("overlay").style.display = "none";
   });
-
-  function viewTicket() {
-    alert("View Ticket");
-  }
 </script>
 
 </body>
