@@ -2,6 +2,7 @@
 include '../../Model/user.php';
 include '../../Model/session.php';
 $ticketID = $_GET['ticketID'];
+$groupID = $user->getGroupID();
 
 ?>
 <!DOCTYPE html>
@@ -163,14 +164,13 @@ $ticketID = $_GET['ticketID'];
   </div>
 </div>
 
-
-
 <footer id="footer">
   <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>
 </footer>
 
 <script>
   var ticketID = "<?php echo $ticketID; ?>";
+  var groupID = "<?php echo $groupID; ?>";
 </script>
 <script src="../../Controller/display-ticket.js"></script>
 <script>
