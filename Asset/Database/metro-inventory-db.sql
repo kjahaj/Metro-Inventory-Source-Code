@@ -53,7 +53,7 @@ CREATE TABLE `tickets` (
     `title` VARCHAR(20) NOT NULL,
     `message` VARCHAR(300) NOT NULL DEFAULT '',
     `msgStatus` ENUM('READ', 'UNREAD') NOT NULL DEFAULT 'UNREAD',
-    `status` ENUM('ACTIVE', 'COMPLETED') NOT NULL DEFAULT 'ACTIVE',
+    `status` ENUM('OPEN', 'CLOSED') NOT NULL DEFAULT 'OPEN',
     `datetimeCreated` VARCHAR(45) NOT NULL,
     `datetimeModified` VARCHAR(45) NOT NULL,
     `groupID` INT NOT NULL,

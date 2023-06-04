@@ -27,13 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn->close();
     } elseif (isset($_POST['status'])) {
         $umodifierID = $user->getUserID();
+        $dateTimeModified = date('Y-m-d H:i:s');
 
-        $query = "UPDATE tickets SET status = 'COMPLETED', umodifierID = ? WHERE ticketID = ?";
+        $query = "UPDATE tickets SET status = 'CLOSED', umodifierID = ?, datetimeModified = ? WHERE ticketID = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('ss', $umodifierID, $ticketID);
+        $stmt->bind_param('sss', $umodifierID, $dateTimeModified, $ticketID);
 
         if ($stmt->execute()) {
-            echo "Ticket status updated to COMPLETED";
+            echo "Ticket status updated to CLOSED";
         } else {
             echo "Failed to update ticket status";
         }
