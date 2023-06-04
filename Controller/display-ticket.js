@@ -39,14 +39,14 @@ function updateTicketStatus(ticketID) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        console.log("Ticket status updated to COMPLETED");
+        console.log("Ticket status updated to CLOSED");
       } else {
         console.log("Failed to update ticket status");
         console.log(xhr.responseText);
       }
     }
   };
-  var params = "ticketID=" + ticketID + "&status=COMPLETED";
+  var params = "ticketID=" + ticketID + "&status=CLOSED";
   xhr.send(params);
 }
 
@@ -65,7 +65,7 @@ function fillTicketData(data) {
   groupContainer.querySelector("p:last-child").textContent = data.ugroup;
   sender.textContent = "Sender: " + data.sender + " " + data.datetimeCreated;
 
-  if (data.status === "COMPLETED") {
+  if (data.status === "CLOSED") {
     closeTicketButton.style.display = "none";
     statusLabel.classList.add("complete");
     var userWhoClosed = data.modifier + " " + data.datetimeModified;
