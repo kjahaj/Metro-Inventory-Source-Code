@@ -38,6 +38,7 @@ include '../../Model/session.php';
     display: flex;
   justify-content: center;
   margin-top: 20px;
+  height: 35px;
   }
   
    
@@ -141,7 +142,8 @@ include '../../Model/session.php';
       border-radius: 4px;
   }
   .popup #dropdown{
-    height: 20px;
+    height: 24px;
+    width:100%;
   }
   .popup #input2{
     height: 20px;
@@ -149,7 +151,7 @@ include '../../Model/session.php';
   .popup button{
     background-color: dodgerblue;
     border-radius: 4px;
-    margin-left: 25%;
+    margin-left: 30%;
     margin-right: 25%;
     padding-left: 10px;
     padding: 7px 8px;
@@ -200,7 +202,7 @@ include '../../Model/session.php';
     <br>
     <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i> Check Requests</a></li>
     <br>
-    <li><a href="#"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
+    <li><a href="view-tickets.php"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
   </ul>
 </div>
 

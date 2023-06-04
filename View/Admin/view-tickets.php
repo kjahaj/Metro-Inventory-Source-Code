@@ -19,10 +19,12 @@ include '../../Model/session.php';
 #ticket-container {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
-    height: 10vh;
+    height: max-content;
 }
+
 
 .ticket {
     display: flex;
@@ -145,6 +147,9 @@ select {
     resize: vertical;
     overflow-y: auto;
 }
+.popup textarea{
+    resize: none;
+}
 
 button[type="submit"] {
     background-color: dodgerblue;
@@ -212,6 +217,7 @@ button[type="submit"] {
         <div id="myPopup" class="popup">
             <span class="close">&times;</span>
             <h2>Create a Ticket</h2>
+            
 
             <form action="../../Model/create-ticket.php" method="POST">
                 <div class="form-group">
@@ -247,6 +253,7 @@ button[type="submit"] {
 
     <script src="../../Controller/show-tickets.js"></script>
     <script>
+
         document.getElementById("openCT").addEventListener("click", function() {
             document.getElementById("myPopup").style.display = "block";
             document.getElementById("overlay").style.display = "block";
@@ -257,9 +264,12 @@ button[type="submit"] {
             document.getElementById("overlay").style.display = "none";
         });
 
+        //the popup block after the button is pressed
+        
         var btn = document.querySelector('.toggle');
         var btnst = true;
         btn.onclick = function() {
+            console.log("\n");
             if (btnst == true) {
                 document.querySelector('.toggle span').classList.add('toggle');
                 document.getElementById('sidebar').classList.add('sidebarshow');

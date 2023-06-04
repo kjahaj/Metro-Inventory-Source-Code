@@ -44,21 +44,21 @@ include '../../Model/session.php';
     <br>
     <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Check Requests</a></li>
     <br>
-    <li><a href="#"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;View Tickets</a></li>
+    <li><a href="view-tickets.php"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;View Tickets</a></li>
   </ul>
 </div>
 
 <div class="container">
   <h1>Data Insertion</h1>
   <input type="text" id="inputItem" placeholder="Enter item">
-  <input type="number" id="quantity" name="quantity" placeholder="quantity" required>
+  <input type="number" id="quantity" name="quantity" placeholder="Quantity" required>
   <select id="inputCategory">
     <option value="IT">IT</option>
     <option value="service">Service</option>
   </select>
   <select id="dropdown" name="dropdown"></select>
   <br><br>
-  <button onclick="insertData()">Insert</button>
+  <button class="buttoniInsert" onclick="insertData()" style="width:20%;">Insert</button>
 </div>
 <script src="../../Controller/add-warehouse.js"></script>
 <script src="../../Controller/insert-stock.js"></script>
