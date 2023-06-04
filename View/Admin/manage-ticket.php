@@ -2,6 +2,7 @@
 include '../../Model/user.php';
 include '../../Model/session.php';
 $ticketID = $_GET['ticketID'];
+$groupID = $user->getGroupID();
 
 ?>
 <!DOCTYPE html>
@@ -168,6 +169,7 @@ $ticketID = $_GET['ticketID'];
 
 <script>
   var ticketID = "<?php echo $ticketID; ?>";
+  var groupID = "<?php echo $groupID; ?>";
 </script>
 <script src="../../Controller/display-ticket.js"></script>
 <script>
