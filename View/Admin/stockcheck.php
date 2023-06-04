@@ -31,6 +31,7 @@ include '../../Model/session.php';
     height: 36px;
     margin-right: 8%;
   }
+  
 
   /* Style for the pop-up */
   .popup {
