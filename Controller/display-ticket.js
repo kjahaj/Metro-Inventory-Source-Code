@@ -50,6 +50,24 @@ function updateTicketStatus(ticketID) {
   xhr.send(params);
 }
 
+function deleteTicket(ticketID) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "../../Model/delete-ticket.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        console.log("Ticket was deleted successfully");
+      } else {
+        console.log("Failed to delete ticket !");
+        console.log(xhr.responseText);
+      }
+    }
+  };
+  var params = "ticketID=" + ticketID;
+  xhr.send(params);
+}
+
 function fillTicketData(data) {
   var titleField = document.querySelector(".title-field");
   var messageTextarea = document.querySelector(".message-textarea");
@@ -57,6 +75,7 @@ function fillTicketData(data) {
   var groupContainer = document.querySelector(".group-container");
   var sender = document.querySelectorAll(".ticket p")[1];
   var closeTicketButton = document.querySelector(".close-ticket-button");
+  var deleteTicketButton = document.querySelector(".delete-button");
 
   titleField.value = data.title;
   messageTextarea.value = data.message;
@@ -81,6 +100,21 @@ function fillTicketData(data) {
         setTimeout(function () {
           location.reload();
         }, 1000);
+      }
+    });
+  }
+
+  if (data.status === "CLOSED") {
+    deleteTicketButton.style.display = "none";
+  } else {
+    deleteTicketButton.addEventListener("click", function () {
+      var confirmation = confirm(
+        "Are you sure you want to delete this ticket?"
+      );
+      if (confirmation) {
+        deleteTicket(ticketID);
+        location.href = "../../View/Admin/view-tickets.php";
+        window.location.replace("../../View/Admin/view-tickets.php");
       }
     });
   }

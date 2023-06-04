@@ -91,6 +91,7 @@ $groupID = $user->getGroupID();
   }
 
   .edit-button,
+  .delete-button,
   .close-ticket-button {
     padding: 5px 10px;
     margin-top: 10px;
@@ -101,6 +102,10 @@ $groupID = $user->getGroupID();
     cursor: pointer;
     width: auto;
     height: auto;
+  }
+
+  .delete-button{
+    background-color: red;
   }
 
   .edit-button:hover,
@@ -163,8 +168,8 @@ $groupID = $user->getGroupID();
         </div>
       </div>
       <p>Sender:</p>
-      <!-- <button class="edit-button">EDIT</button> -->
       <button class="close-ticket-button">CLOSE TICKET</button>
+      <button class="delete-button">DELETE TICKET</button>
     </div>
   </div>
 </div>
