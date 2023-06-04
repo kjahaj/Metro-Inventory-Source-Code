@@ -44,16 +44,12 @@ include '../../Model/session.php';
       <br>
       <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i> Buy Stock</a></li>
       <br>
-      <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i> Check Requests</a></li>
-      <br>
       <li><a href="#"><i class="fa fa-sharp fa-light fa-file-pen" aria-hidden="true"></i> Make Requests</a></li>
       <br>
     </ul>
   </div>
 
-  <footer id="footer">
-    <p>&copy; 2023 Finance Dashboard. All rights reserved.</p>
-  </footer>
+  
 
   <script>
     var btn = document.querySelector('.toggle');

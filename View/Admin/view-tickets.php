@@ -241,8 +241,6 @@ include '../../Model/session.php';
     <br>
     <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Insert Stock</a></li>
     <br>
-    <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i> Check Requests</a></li>
-    <br>
     <li><a href="view-tickets.php"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
     <br>
 
@@ -287,9 +285,7 @@ include '../../Model/session.php';
   <div id="ticket-container"></div>
 </div>
 
-<footer id="footer">
-  <p>&copy; 2023 Admin Dashboard. All rights reserved.</p>
-</footer>
+
 
 <script src="../../Controller/show-tickets.js"></script>
 
