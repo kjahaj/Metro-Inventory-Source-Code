@@ -224,7 +224,7 @@ include '../../Model/session.php';
 </div>
 
 <div class="buttonContainer">
-  <button class="open-button" onclick="showPopup()">Open</button>
+  <button class="open-button" onclick="showPopup()">Edit Quantity</button>
 </div>
 
 <div id="popupContainer" style="display: none;">

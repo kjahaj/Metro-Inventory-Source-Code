@@ -24,5 +24,7 @@ if ($conn->query($sql) === TRUE) {
     echo "Error updating database: " . $conn;
 }
 
+
+
 $conn->close();
 ?>

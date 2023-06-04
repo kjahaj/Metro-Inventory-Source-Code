@@ -1,9 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "metro-inventory";
+include("../../config.php");
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
