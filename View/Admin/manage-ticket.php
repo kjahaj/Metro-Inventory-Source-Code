@@ -30,12 +30,14 @@ $groupID = $user->getGroupID();
     justify-content: center;
     align-items: center;
     background-color: white;
+    border-radius: 4px;
+    box-shadow: 7px 8px #135CA3;
   }
 
   .ticket {
-    border: 1px solid #ccc;
-    padding: 10px;
+    padding: 35px;
     margin-bottom: 10px;
+    border-radius: 4px;
   }
 
   .title-field {
@@ -43,6 +45,7 @@ $groupID = $user->getGroupID();
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    border-radius: 4px;
   }
 
   .message-textarea {
@@ -50,6 +53,8 @@ $groupID = $user->getGroupID();
     height: 100px;
     resize: vertical;
     margin-bottom: 10px;
+    resize: none;
+    border-radius: 4px;
   }
 
   .status-group-container {
@@ -73,7 +78,7 @@ $groupID = $user->getGroupID();
   }
 
   .active {
-    color: green;
+    color: #32de84;
   }
 
   .group-container {
@@ -90,7 +95,7 @@ $groupID = $user->getGroupID();
   .close-ticket-button {
     padding: 5px 10px;
     margin-top: 10px;
-    background-color: #4CAF50;
+    background-color: dodgerblue;
     color: white;
     border: none;
     border-radius: 4px;
