@@ -113,8 +113,8 @@ function fillTicketData(data) {
       );
       if (confirmation) {
         deleteTicket(ticketID);
-        location.href = "../../View/Admin/view-tickets.php";
-        window.location.replace("../../View/Admin/view-tickets.php");
+        location.href = "../../View/Admin/view-tickets";
+        window.location.replace("../../View/Admin/view-tickets");
       }
     });
   }

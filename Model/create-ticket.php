@@ -21,7 +21,7 @@ if (isset($_POST['createTicket'])) {
 
     // Execute the query
     if (mysqli_stmt_execute($stmt)) {
-        header("Location: ../View/Admin/view-tickets.php");
+        header("Location: ../View/Admin/view-tickets");
         exit();
     } else {
         echo "Error: " . mysqli_error($conn);

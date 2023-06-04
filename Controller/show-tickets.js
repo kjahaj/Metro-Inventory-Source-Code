@@ -79,7 +79,7 @@ function createTicket(item, ticketContainer) {
   viewButton.textContent = "View";
   viewButton.addEventListener("click", function () {
     var ticketID = item.ticketID;
-    window.location.href = "manage-ticket.php?ticketID=" + ticketID;
+    window.location.href = "manage-ticket?ticketID=" + ticketID;
   });
 
   actions.appendChild(viewButton);

@@ -10,7 +10,7 @@ if (isset($_POST['sub'])) {
 
     // Validate input
     if (empty($email) || empty($password)) {
-        echo "<script>alert('Please enter email and password.'); window.location.href='login.php?err=2';</script>";
+        echo "<script>alert('Please enter email and password.'); window.location.href='login?err=2';</script>";
         exit();
     }
     $stmt = mysqli_prepare(
@@ -38,27 +38,27 @@ if (isset($_POST['sub'])) {
             // Redirect based on user's group
             switch ($row['ugroup']) {
                 case "ADMIN":
-                    header("Location: ../../View/Admin/index.php");
+                    header("Location: ../../View/Admin/index");
                     break;
                 case "IT":
-                    header("Location: ../../View/IT/index.php");
+                    header("Location: ../../View/IT/index");
                     break;
                 case "SERVICE":
-                    header("Location: ../../View/Service/index.php");
+                    header("Location: ../../View/Service/index");
                     break;
                 case "FINANCE":
-                    header("Location: ../../View/Finance/index.php");
+                    header("Location: ../../View/Finance/index");
                     break;
                 default:
-                    header("Location: ../../View/User/index.php");
+                    header("Location: ../../View/User/index");
             }
             exit();
         } else {
-            header("Location: login.php?err=1");
+            header("Location: login?err=1");
             exit();
         }
     } else {
-        header("Location: login.php?err=1");
+        header("Location: login?err=1");
         exit();
     }
 }
