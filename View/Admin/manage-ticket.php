@@ -33,7 +33,6 @@ $groupID = $user->getGroupID();
     border-radius: 4px;
     box-shadow: 7px 8px #135CA3;
   }
-
   .ticket {
     padding: 35px;
     margin-bottom: 10px;
