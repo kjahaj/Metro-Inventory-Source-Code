@@ -60,7 +60,8 @@ include '../../Model/session.php';
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    .create-ticket-button:hover{
+
+    .create-ticket-button:hover {
       transform: scale(1.1);
     }
 
@@ -156,7 +157,6 @@ include '../../Model/session.php';
       left: 0;
       width: 100%;
       height: 100%;
-      /* background-color: rgba(0, 128, 0, 0.5); */
       backdrop-filter: blur(3px);
       z-index: 1;
     }
@@ -183,42 +183,75 @@ include '../../Model/session.php';
       font-size: 25px;
     }
 
-    .status {
-      font-size: 15px;
-      font-style: italic;
-      color: green;
+    .group {
+      display: inline-block;
+      text-align: center;
+      padding: 5px 5px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      font-weight: bold;
+      margin-right: 10px;
+      color: black;
+      background-color: #f8f38d;
     }
 
-    .closed {
-      color: red;
+    .statusOPEN {
+      display: inline-block;
+      text-align: center;
+      padding: 5px 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-right: 10px;
+      color: white;
+      background-color: #32de84;
+    }
+
+    .statusCLOSED {
+      display: inline-block;
+      text-align: center;
+      padding: 5px 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-right: 10px;
+      color: white;
+      background-color: red;
     }
 
     .actions {
-      display: flex;
+      display: flow-root;
       flex-direction: column;
-      gap: 10px;
+      gap: 5px;
     }
 
     .button {
-      width: auto;
       background-color: #6FB8FF;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      text-align: center;
-      text-decoration: none;
       display: inline-block;
-      font-size: 15px;
-      cursor: pointer;
+      text-align: center;
+      padding: 5px 5px;
+      border: 1px solid #ccc;
       border-radius: 4px;
+      font-weight: bold;
+      margin-right: 10px;
+      color: white;
+      cursor: pointer;
       transition: all 0.3s ease;
     }
-    .button:hover{
+
+    .button:hover {
       transform: scale(1.1);
     }
+
     .main-container {
-  transition: margin-left 0.4s ease;
-}
+      transition: margin-left 0.4s ease;
+    }
+
+    .char-limit {
+      color: gray;
+      font-size: 12px;
+      margin-top: 5px;
+    }
   </style>
 </head>
 
@@ -270,12 +303,14 @@ include '../../Model/session.php';
       <form action="../../Model/create-ticket.php" method="POST">
         <div class="form-group">
           <label for="title">Title:</label>
-          <input type="text" id="title" name="title" required>
+          <input type="text" id="title" name="title" maxlength="20" required>
+          <p class="char-limit">Maximum 20 characters</p>
         </div>
 
         <div class="form-group">
           <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message" maxlength="300" required></textarea>
+          <p class="char-limit">Maximum 300 characters</p>
         </div>
 
         <div class="form-group">
@@ -290,36 +325,34 @@ include '../../Model/session.php';
       </form>
     </div>
 
+
     <div id="overlay"></div>
   </div>
 
   <div id="ticket-container"></div>
 </div>
 
-
-
 <script src="../../Controller/show-tickets.js"></script>
 
 <script>
   var btn = document.querySelector('.toggle');
-var btnst = true;
-btn.onclick = function() {
-  var sidebar = document.getElementById('sidebar');
-  var container = document.querySelector('.main-container');
+  var btnst = true;
+  btn.onclick = function() {
+    var sidebar = document.getElementById('sidebar');
+    var container = document.querySelector('.main-container');
 
-  if (btnst) {
-    document.querySelector('.toggle span').classList.add('toggle');
-    sidebar.classList.add('sidebarshow');
-    container.style.marginLeft = "15%";
-  } else {
-    document.querySelector('.toggle span').classList.remove('toggle');
-    sidebar.classList.remove('sidebarshow');
-    container.style.marginLeft = "0%";
-  }
+    if (btnst) {
+      document.querySelector('.toggle span').classList.add('toggle');
+      sidebar.classList.add('sidebarshow');
+      container.style.marginLeft = "15%";
+    } else {
+      document.querySelector('.toggle span').classList.remove('toggle');
+      sidebar.classList.remove('sidebarshow');
+      container.style.marginLeft = "0%";
+    }
 
-  btnst = !btnst;
-};
-
+    btnst = !btnst;
+  };
 
   document.getElementById("openCT").addEventListener("click", function() {
     document.getElementById("myPopup").style.display = "block";

@@ -33,7 +33,6 @@ $groupID = $user->getGroupID();
     border-radius: 4px;
     box-shadow: 7px 8px #135CA3;
   }
-
   .ticket {
     padding: 35px;
     margin-bottom: 10px;
@@ -108,6 +107,9 @@ $groupID = $user->getGroupID();
   .close-ticket-button:hover {
     background-color: #45a049;
   }
+  #main-container {
+      transition: margin-left 0.4s ease;
+    }
 </style>
 
 </head>
