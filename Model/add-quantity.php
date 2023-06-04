@@ -1,5 +1,6 @@
 <?php
 include "./connection.php";
+include "./user.php";
 
 // Prepare the SQL query
 $sql = "SELECT item FROM stockitems;";

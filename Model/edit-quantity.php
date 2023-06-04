@@ -1,8 +1,15 @@
 <?php
 include "./connection.php";
+include "./user.php";
+include "./session.php";
 
 $item = $_POST['item'];
 $quantity = $_POST['quantity'];
+
+if (empty($quantity)) {
+    echo "Error: Quantity field is empty. Please enter a valid quantity.";
+    exit;
+}
 
 $iIDQuery = "SELECT itemID, quantity FROM `stockitems` WHERE item = '$item'";
 $iIDResult = mysqli_query($conn, $iIDQuery);
@@ -28,6 +35,24 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Error updating database: " . mysqli_error($conn);
 }
+
+
+$file = "../LOGS/logs.log";
+$user = unserialize($_SESSION['user']);
+$userFull = "[" . date('Y-m-d H:i:s') . "] USER: " . $user->getName() . " " . $user->getSurname() . " UPDATED ITEM " . $item . " UPDATED QUANTITY FROM: " . $currentQuantity." TO ". $newQuantity ."\n";
+
+$data = file_get_contents($file); // Read the existing content of the file
+
+$handle = fopen($file, 'w'); // Open the file in write mode
+
+if ($handle !== false) {
+    fwrite($handle, $userFull . $data); // Write the content with current time followed by the existing content
+
+    fclose($handle); // Close the file
+} else {
+    echo "Error opening the file.";
+}
+
 
 // Close the database connection
 mysqli_close($conn);

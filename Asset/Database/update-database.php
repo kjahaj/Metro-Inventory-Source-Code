@@ -11,7 +11,7 @@ try {
       $conn = mysqli_connect($servername, $username, $password, $dbname);
       echo "Database Updated :)";
     } else {
-      echo "Error executing SQL file: " . $conn->error;
+      echo "Error executing SQL file: " . $conn;
       return;
     }
 } catch (PDOException $e) {
