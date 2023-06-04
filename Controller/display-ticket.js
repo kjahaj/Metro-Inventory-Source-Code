@@ -1,19 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   updateMsgStatus(ticketID, groupID);
   fetchData(ticketID);
-
-  var closeTicketButton = document.querySelector(".close-ticket-button");
-  closeTicketButton.addEventListener("click", function () {
-    var confirmation = confirm("Are you sure you want to close this ticket?");
-
-    if (confirmation) {
-      updateTicketStatus(ticketID);
-      setTimeout(function () {
-        location.reload();
-      }, 1000);
-    }
-  });
-
 });
 
 function fetchData(ticketID) {
@@ -69,14 +56,32 @@ function fillTicketData(data) {
   var statusLabel = document.querySelector(".status-label");
   var groupContainer = document.querySelector(".group-container");
   var sender = document.querySelectorAll(".ticket p")[1];
-  var dateTimeCreated = document.querySelectorAll(".ticket p")[2];
+  var closeTicketButton = document.querySelector(".close-ticket-button");
 
   titleField.value = data.title;
   messageTextarea.value = data.message;
   statusLabel.textContent = data.status;
   statusLabel.classList.add(data.status.toLowerCase());
   groupContainer.querySelector("p:last-child").textContent = data.ugroup;
-  sender.textContent = "Sender: " + data.sender;
-  dateTimeCreated.textContent =
-    "Date and Time Created: " + data.datetimeCreated;
+  sender.textContent = "Sender: " + data.sender + " " + data.datetimeCreated;
+
+  if (data.status === "COMPLETED") {
+    closeTicketButton.style.display = "none";
+    statusLabel.classList.add("complete");
+    var userWhoClosed = data.modifier + " " + data.datetimeModified;
+    var userWhoClosedLabel = document.createElement("p");
+    userWhoClosedLabel.textContent = "Closed by: " + userWhoClosed;
+    closeTicketButton.parentNode.appendChild(userWhoClosedLabel);
+  } else {
+    statusLabel.classList.add("active");
+    closeTicketButton.addEventListener("click", function () {
+      var confirmation = confirm("Are you sure you want to close this ticket?");
+      if (confirmation) {
+        updateTicketStatus(ticketID);
+        setTimeout(function () {
+          location.reload();
+        }, 1000);
+      }
+    });
+  }
 }

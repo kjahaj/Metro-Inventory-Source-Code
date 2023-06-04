@@ -71,16 +71,16 @@ $groupID = $user->getGroupID();
     border-radius: 4px;
     font-weight: bold;
     margin-right: 10px;
+    color: white;
   }
 
   .complete {
-    color: red;
+    background-color: red;
   }
 
   .active {
-    color: #32de84;
+    background-color: #32de84;
   }
-
   .group-container {
     display: flex;
     align-items: center;
@@ -155,14 +155,13 @@ $groupID = $user->getGroupID();
       <input type="text" class="title-field" readonly>
       <textarea class="message-textarea" readonly></textarea>
       <div class="status-group-container">
-        <label class="status-label active"></label>
+        <label class="status-label"></label>
         <div class="group-container">
           <p></p>
         </div>
       </div>
       <p>Sender:</p>
-      <p>Date and Time Created:</p>
-      <button class="edit-button">EDIT</button>
+      <!-- <button class="edit-button">EDIT</button> -->
       <button class="close-ticket-button">CLOSE TICKET</button>
     </div>
   </div>
