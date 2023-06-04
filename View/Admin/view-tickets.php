@@ -14,7 +14,7 @@ include '../../Model/session.php';
 
   <title>Admin</title>
   <style>
-    .main-contaioner {
+    .main-container {
       display: fixed;
       justify-content: center;
       align-items: center;
@@ -48,7 +48,7 @@ include '../../Model/session.php';
     .create-ticket-button {
       width: auto;
       height: auto;
-      background-color: green;
+      background-color: dodgerblue;
       color: white;
       padding: 10px 10px;
       border: none;
@@ -58,6 +58,10 @@ include '../../Model/session.php';
       margin-bottom: auto;
       margin-right: 5%;
       cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .create-ticket-button:hover{
+      transform: scale(1.1);
     }
 
     .popup {
@@ -197,7 +201,7 @@ include '../../Model/session.php';
 
     .button {
       width: auto;
-      background-color: #42d6a4;
+      background-color: #6FB8FF;
       color: white;
       border: none;
       padding: 5px 10px;
@@ -207,7 +211,14 @@ include '../../Model/session.php';
       font-size: 15px;
       cursor: pointer;
       border-radius: 4px;
+      transition: all 0.3s ease;
     }
+    .button:hover{
+      transform: scale(1.1);
+    }
+    .main-container {
+  transition: margin-left 0.4s ease;
+}
   </style>
 </head>
 
@@ -247,7 +258,7 @@ include '../../Model/session.php';
   </ul>
 </div>
 
-<div class="main-contaioner">
+<div class="main-container">
 
   <div class="createT">
     <button id="openCT" class="create-ticket-button">Create Ticket</button>
@@ -291,22 +302,24 @@ include '../../Model/session.php';
 
 <script>
   var btn = document.querySelector('.toggle');
-  var btnst = true;
-  btn.onclick = function() {
-    if (btnst == true) {
-      document.querySelector('.toggle span').classList.add('toggle');
-      document.getElementById('sidebar').classList.add('sidebarshow');
-      var div = document.getElementsByClassName("main-contaioner")[0];
-      div.style.marginLeft = "15%";
-      btnst = false;
-    } else if (btnst == false) {
-      document.querySelector('.toggle span').classList.remove('toggle');
-      document.getElementById('sidebar').classList.remove('sidebarshow');
-      var div = document.getElementsByClassName("main-contaioner")[0];
-      div.style.marginLeft = "0%";
-      btnst = true;
-    }
+var btnst = true;
+btn.onclick = function() {
+  var sidebar = document.getElementById('sidebar');
+  var container = document.querySelector('.main-container');
+
+  if (btnst) {
+    document.querySelector('.toggle span').classList.add('toggle');
+    sidebar.classList.add('sidebarshow');
+    container.style.marginLeft = "15%";
+  } else {
+    document.querySelector('.toggle span').classList.remove('toggle');
+    sidebar.classList.remove('sidebarshow');
+    container.style.marginLeft = "0%";
   }
+
+  btnst = !btnst;
+};
+
 
   document.getElementById("openCT").addEventListener("click", function() {
     document.getElementById("myPopup").style.display = "block";
