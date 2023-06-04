@@ -153,7 +153,6 @@ $ticketID = $_GET['ticketID'];
         <label class="status-label active"></label>
         <div class="group-container">
           <p></p>
-          <p></p>
         </div>
       </div>
       <p>Sender:</p>

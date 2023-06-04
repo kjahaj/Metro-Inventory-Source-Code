@@ -19,8 +19,8 @@ function fillTicketData(data) {
   var messageTextarea = document.querySelector('.message-textarea');
   var statusLabel = document.querySelector('.status-label');
   var groupContainer = document.querySelector('.group-container');
-  var sender = document.querySelectorAll('.ticket p')[2];
-  var dateTimeCreated = document.querySelectorAll('.ticket p')[3];
+  var sender = document.querySelectorAll('.ticket p')[1];
+  var dateTimeCreated = document.querySelectorAll('.ticket p')[2];
 
   titleField.value = data.title;
   messageTextarea.value = data.message;
