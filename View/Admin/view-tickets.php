@@ -246,6 +246,12 @@ include '../../Model/session.php';
     .main-container {
       transition: margin-left 0.4s ease;
     }
+
+    .char-limit {
+      color: gray;
+      font-size: 12px;
+      margin-top: 5px;
+    }
   </style>
 </head>
 
@@ -297,12 +303,14 @@ include '../../Model/session.php';
       <form action="../../Model/create-ticket.php" method="POST">
         <div class="form-group">
           <label for="title">Title:</label>
-          <input type="text" id="title" name="title" required>
+          <input type="text" id="title" name="title" maxlength="20" required>
+          <p class="char-limit">Maximum 20 characters</p>
         </div>
 
         <div class="form-group">
           <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message" maxlength="300" required></textarea>
+          <p class="char-limit">Maximum 300 characters</p>
         </div>
 
         <div class="form-group">
@@ -316,6 +324,7 @@ include '../../Model/session.php';
         <button type="submit" name="createTicket">Submit</button>
       </form>
     </div>
+
 
     <div id="overlay"></div>
   </div>
