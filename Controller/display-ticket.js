@@ -1,6 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   updateMsgStatus(ticketID, groupID);
   fetchData(ticketID);
+
+  var closeTicketButton = document.querySelector(".close-ticket-button");
+  closeTicketButton.addEventListener("click", function () {
+    var confirmation = confirm("Are you sure you want to close this ticket?");
+
+    if (confirmation) {
+      updateTicketStatus(ticketID);
+      setTimeout(function () {
+        location.reload();
+      }, 1000);
+    }
+  });
+
 });
 
 function fetchData(ticketID) {
@@ -29,6 +42,24 @@ function updateMsgStatus(ticketID, groupID) {
     }
   };
   var params = "ticketID=" + ticketID + "&msgStatus=READ&groupID=" + groupID;
+  xhr.send(params);
+}
+
+function updateTicketStatus(ticketID) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "../../Model/update-ticket.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        console.log("Ticket status updated to COMPLETED");
+      } else {
+        console.log("Failed to update ticket status");
+        console.log(xhr.responseText);
+      }
+    }
+  };
+  var params = "ticketID=" + ticketID + "&status=COMPLETED";
   xhr.send(params);
 }
 

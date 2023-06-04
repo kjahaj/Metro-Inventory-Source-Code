@@ -168,10 +168,6 @@ $groupID = $user->getGroupID();
   </div>
 </div>
 
-
-
-
-
 <script>
   var ticketID = "<?php echo $ticketID; ?>";
   var groupID = "<?php echo $groupID; ?>";
