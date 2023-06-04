@@ -39,9 +39,6 @@
     </ul>
   </div>
 
-  <footer id="footer">
-    <p>&copy; 2023 User Dashboard. All rights reserved.</p>
-  </footer>
 
   <script>
     var btn = document.querySelector('.toggle');

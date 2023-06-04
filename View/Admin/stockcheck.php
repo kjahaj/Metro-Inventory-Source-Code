@@ -15,32 +15,22 @@ include '../../Model/session.php';
 </head>
 <body>
   <style>
-    .open-button {
+  .open-button{
     background-color: #2f40a0;
-    border: none;
-    color: white;
-    padding: 7px 40px;
-    
-    justify-content: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-  
-    
-  }
-  .buttonContainer{
-    margin-left: 50%;
-    
+  color: white;
+  padding: 8px 6px; 
+  font-size: 13px; 
+  border-radius: 3px;
+  position: fixed;
+  top: 22%; /* Adjust the top positioning as desired */
+  right: 13px; /* Adjust the right positioning as desired */
+  z-index: 1; 
   }
   .buttonContainer button{
-    display: flex;
-  justify-content: center;
-  margin-top: 20px;
+    margin-top: 10px;
+    height: 36px;
+    margin-right: 8%;
   }
-  
-   
 
   /* Style for the pop-up */
   .popup {
@@ -141,7 +131,8 @@ include '../../Model/session.php';
       border-radius: 4px;
   }
   .popup #dropdown{
-    height: 20px;
+    height: 24px;
+    width:100%;
   }
   .popup #input2{
     height: 20px;
@@ -149,7 +140,7 @@ include '../../Model/session.php';
   .popup button{
     background-color: dodgerblue;
     border-radius: 4px;
-    margin-left: 25%;
+    margin-left: 30%;
     margin-right: 25%;
     padding-left: 10px;
     padding: 7px 8px;
@@ -197,10 +188,9 @@ include '../../Model/session.php';
     <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i> Buy Stock</a></li>
     <br>
     <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Insert Stock</a></li>
+    
     <br>
-    <li><a href="#"><i class="fas fa-receipt" aria-hidden="true"></i> Check Requests</a></li>
-    <br>
-    <li><a href="#"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
+    <li><a href="view-tickets.php"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
   </ul>
 </div>
 
@@ -222,7 +212,7 @@ include '../../Model/session.php';
 </div>
 
 <div class="buttonContainer">
-  <button class="open-button" onclick="showPopup()">Edit Quantity</button>
+  <button class="open-button" onclick="showPopup()" style="margin-left: 500px;">Edit Quantity</button>
 </div>
 
 <div id="popupContainer" style="display: none;">
