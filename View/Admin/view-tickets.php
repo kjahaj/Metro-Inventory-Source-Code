@@ -277,15 +277,15 @@ include '../../Model/session.php';
     </div>
   </div>
   <ul>
-    <li><a href="index"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+    <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
     <br>
-    <li><a href="stockcheck"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
+    <li><a href="stockcheck.php"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
     <br>
     <li><a href="#"><i class="fas fa-money-bills" aria-hidden="true"></i> Buy Stock</a></li>
     <br>
-    <li><a href="insertStock"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Insert Stock</a></li>
+    <li><a href="insertStock.php"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Insert Stock</a></li>
     <br>
-    <li><a href="view-tickets"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
+    <li><a href="view-tickets.php"><i class="fa fa-sharp fa-light fa-ticket" aria-hidden="true"></i> View Tickets</a></li>
     <br>
 
   </ul>
