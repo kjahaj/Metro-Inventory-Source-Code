@@ -11,7 +11,7 @@ if (empty($quantity)) {
     exit;
 }
 
-$iIDQuery = "SELECT itemID, quantity FROM `stockitems` WHERE item = '$item'";
+$iIDQuery = "SELECT itemID, quantity FROM `stockItems` WHERE item = '$item'";
 $iIDResult = mysqli_query($conn, $iIDQuery);
 $iIDRow = mysqli_fetch_assoc($iIDResult);
 $iID = $iIDRow['itemID'];
@@ -25,7 +25,7 @@ if ($newQuantity < 0) {
     exit;
 }
 
-$sql = "UPDATE `stockitems` 
+$sql = "UPDATE `stockItems` 
         SET quantity = $newQuantity
         WHERE itemID = $iID";
 

@@ -2,8 +2,8 @@
 include './connection.php';
 
 $sql = "SELECT itemID, item, category, quantity, warehouse
-        FROM `stockitems` si
-        JOIN `storageunits` su ON si.warehouseID = su.warehouseID";
+        FROM `stockItems` si
+        JOIN `storageUnits` su ON si.warehouseID = su.warehouseID";
 
 $result = mysqli_query($conn, $sql);
 

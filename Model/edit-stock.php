@@ -9,8 +9,8 @@ $category = $_POST['category'];
 $warehouse = $_POST['warehouse'];
 
 $iIDQuery = "SELECT si.itemID, si.item, su.warehouse AS currentWarehouse
-             FROM `stockitems` AS si
-             INNER JOIN `storageunits` AS su ON si.warehouseID = su.warehouseID
+             FROM `stockItems` AS si
+             INNER JOIN `storageUnits` AS su ON si.warehouseID = su.warehouseID
              WHERE si.itemID = '$rowId'"; 
 $iIDResult = mysqli_query($conn, $iIDQuery);
 $iIDRow = mysqli_fetch_assoc($iIDResult);
@@ -18,7 +18,7 @@ $iID = $iIDRow['itemID'];
 $currentName = $iIDRow['item'];
 $currentWarehouse = $iIDRow['currentWarehouse'];
 
-$wIDQuery = "SELECT warehouseID, warehouse FROM `storageunits` WHERE warehouse = '$warehouse'";
+$wIDQuery = "SELECT warehouseID, warehouse FROM `storageUnits` WHERE warehouse = '$warehouse'";
 $wIDResult = mysqli_query($conn, $wIDQuery);
 $wIDRow = mysqli_fetch_assoc($wIDResult);
 $wID = $wIDRow['warehouseID'];
@@ -43,7 +43,7 @@ if ($currentWarehouse != $newWarehouse) {
     }
 }
 
-$sql = "UPDATE `stockitems` 
+$sql = "UPDATE `stockItems` 
         SET item = '$item', 
         category = '$category', 
         warehouseID = '$wID'

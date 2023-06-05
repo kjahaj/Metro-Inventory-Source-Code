@@ -14,13 +14,13 @@ if (empty($item) || empty($category) || empty($quantity) || empty($warehouse)) {
 } elseif (!is_numeric($quantity) || $quantity <= 0) {
     echo "Quantity must be a positive number.";
 } else {
-    $wIDQuery = "SELECT warehouseID FROM `storageunits` WHERE warehouse = '$warehouse'";
+    $wIDQuery = "SELECT warehouseID FROM `storageUnits` WHERE warehouse = '$warehouse'";
     $wIDResult = mysqli_query($conn, $wIDQuery);
     $wIDRow = mysqli_fetch_assoc($wIDResult);
     $wID = $wIDRow['warehouseID'];
 
     // Prepare the SQL query
-    $sql = "INSERT INTO `stockitems` (item, category, quantity, warehouseID) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO `stockItems` (item, category, quantity, warehouseID) VALUES (?, ?, ?, ?)";
 
     // Bind the parameters
     $stmt = mysqli_prepare($conn, $sql);

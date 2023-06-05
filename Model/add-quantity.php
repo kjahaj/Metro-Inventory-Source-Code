@@ -3,7 +3,7 @@ include "./connection.php";
 include "./user.php";
 
 // Prepare the SQL query
-$sql = "SELECT item FROM stockitems;";
+$sql = "SELECT item FROM stockItems;";
 
 // Execute the query
 $result = mysqli_query($conn, $sql);

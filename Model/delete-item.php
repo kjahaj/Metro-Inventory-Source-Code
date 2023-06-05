@@ -5,12 +5,12 @@ include './session.php';
 
 $itemID = $_POST['itemID'];
 
-$itemQuery = "SELECT item FROM stockitems WHERE itemID = $itemID";
+$itemQuery = "SELECT item FROM stockItems WHERE itemID = $itemID";
 $itemResult = mysqli_query($conn, $itemQuery);
 $itemRow = mysqli_fetch_assoc($itemResult);
 $item = $itemRow['item'];
 
-$sql = "DELETE FROM `stockitems` WHERE itemID = ?";
+$sql = "DELETE FROM `stockItems` WHERE itemID = ?";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $itemID);
