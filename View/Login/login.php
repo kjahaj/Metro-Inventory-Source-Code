@@ -10,7 +10,6 @@ session_destroy();
   <title>Log In Page</title>
   <link rel="stylesheet" href="../../Asset/CSS/logIn.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <script src="../../Controller/showPass.js"></script>
 </head>
 
 <body id="bg1">

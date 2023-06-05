@@ -1,3 +1,9 @@
+-- FOR LOCAL USE:
+DROP DATABASE `metro-inventory`;
+CREATE DATABASE `metro-inventory` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_bin */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `metro-inventory`;
+
+-- FOR ALL CASES:
 SET foreign_key_checks = 0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
