@@ -2,7 +2,7 @@ function insertData() {
     var item = document.getElementById("inputItem").value;
     var category = document.getElementById("inputCategory").value;
     var quantity = document.getElementById("quantity").value;
-    var warehouse = document.getElementById("dropdown").value
+    var warehouse = document.getElementById("dropdown").value;
     
     // Make an AJAX request to the PHP file
     var xhr = new XMLHttpRequest();
@@ -11,7 +11,7 @@ function insertData() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // Handle the response from the PHP file
-            alert(xhr.responseText);
+            document.getElementById("insertionMessage").innerHTML = xhr.responseText;
         }
     };
     
@@ -19,5 +19,4 @@ function insertData() {
     var params = "item=" + encodeURIComponent(item) + "&category=" + encodeURIComponent(category)
      + "&quantity=" + encodeURIComponent(quantity) + "&warehouse=" + encodeURIComponent(warehouse);
     xhr.send(params);
-        
 }

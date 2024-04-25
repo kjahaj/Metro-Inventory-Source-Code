@@ -71,7 +71,7 @@ function createDeleteButtonClickHandler(itemId) {
   return function() {
     // Find the row corresponding to the clicked delete button
     var row = document.getElementById(itemId);
-    console.log(itemId);
+    
     // Remove the row from the table
     row.parentNode.removeChild(row);
 
@@ -81,8 +81,9 @@ function createDeleteButtonClickHandler(itemId) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        // Handle the response from the server if needed
-        console.log("Item deleted successfully!");
+        // Handle the response from the server
+        var deletionMessage = document.getElementById("deletionMessage");
+        deletionMessage.innerText = xhr.responseText;
       }
     };
     xhr.send("itemID=" + encodeURIComponent(itemId));

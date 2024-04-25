@@ -230,6 +230,9 @@ include '../../Model/session.php';
     <button class="submit-button" id="edit-quantity" onclick="insertQuantity()">Submit</button>
   </div>
 </div>
+<div class="container">
+    <div id="deletionMessage"></div>
+</div>
 
   <script src="../../Controller/show-stock.js"></script>
   <script src="../../Controller/add-quantity.js"></script>

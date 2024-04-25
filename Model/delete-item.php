@@ -17,11 +17,11 @@ $stmt->bind_param("i", $itemID);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {
-    // The row has been deleted successfully
-    echo "Row deleted.";
+    $message = "Item deleted!";
+    echo $message;
 } else {
-    // No row was deleted
-    echo "No row deleted.";
+    $message = "No item  deleted!";
+    echo $message;
 }
 
 $file = "../LOGS/logs.log";

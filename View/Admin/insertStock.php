@@ -53,12 +53,16 @@ include '../../Model/session.php';
   <input type="number" id="quantity" name="quantity" placeholder="Quantity" required>
   <select id="inputCategory">
     <option value="IT">IT</option>
-    <option value="service">Service</option>
+    <option value="Service">Service</option>
   </select>
   <select id="dropdown" name="dropdown"></select>
   <br><br>
   <button class="buttoniInsert" onclick="insertData()" style="width:20%;">Insert</button>
+
+  <!-- Display insertion message here -->
+  <div id="insertionMessage"></div>
 </div>
+
 <script src="../../Controller/add-warehouse.js"></script>
 <script src="../../Controller/insert-stock.js"></script>
 
@@ -79,10 +83,9 @@ include '../../Model/session.php';
     }
   }
 </script>
+<!-- SCRIPT insertStockContr.js DOESN'T EVEN EXIST -->
 <script rel="script" href="insertStockContr.js">
-
 </script>
-
 </body>
 
 </html>
