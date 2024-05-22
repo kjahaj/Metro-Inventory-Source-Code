@@ -1,6 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
+
+document.addEventListener("DOMContentLoaded", function() { 
     fetchData();
-});
+  });
 
 function fetchData() {
     var xhr = new XMLHttpRequest();

@@ -58,7 +58,7 @@ include '../../Model/auth_check.php';
 
 <div class="container2" id="tiketsat" style="background-color:aquamarine; padding-top: 100px;"></div>
 
-
+<div class="container3" id="logs-container" style="background-color:blue; padding-top:100px;"></div>
 
 <script>
   var btn = document.querySelector('.toggle');
@@ -76,10 +76,13 @@ include '../../Model/auth_check.php';
   }
 </script>
 
+
+<script src = "../../Controller/stock-overview.js"></script>
+
 <script src="../../Controller/ticket-overview.js">
 </script>
 
-
+<script src="../../Controller/logs-overview.js"></script>
 
 </body>
 
