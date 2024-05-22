@@ -141,7 +141,7 @@ $groupID = $user->getGroupID();
     </div>
   </div>
   <ul>
-    <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+    <li><a href="adminIndex.php"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
     <br>
     <li><a href="stockcheck.php"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
     <br>

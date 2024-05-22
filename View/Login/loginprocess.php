@@ -38,7 +38,7 @@ if (isset($_POST['sub'])) {
             // Redirect based on user's group
             switch ($row['ugroup']) {
                 case "ADMIN":
-                    header("Location: ../../View/Admin/index.php");
+                    header("Location: ../../View/Admin/adminIndex.php");
                     break;
                 case "IT":
                     header("Location: ../../View/IT/index.php");

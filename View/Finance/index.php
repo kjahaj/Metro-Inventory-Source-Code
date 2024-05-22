@@ -1,6 +1,7 @@
 <?php
 include "../../Model/user.php";
-include '../../Model/session.php'; 
+include '../../Model/session.php';
+include '../../Model/auth_check.php';
 ?>
 <!DOCTYPE html>
 <html>

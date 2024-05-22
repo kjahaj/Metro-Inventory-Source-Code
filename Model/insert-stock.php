@@ -24,7 +24,6 @@ if (empty($item) || empty($category) || empty($quantity) || empty($warehouse)) {
 
     // Bind the parameters
     $stmt = mysqli_prepare($conn, $sql);
-    var_dump($category);
     mysqli_stmt_bind_param($stmt, "ssii", $item, $category, $quantity, $wID);
 
     // Execute the query

@@ -2,17 +2,21 @@
 include "../../Model/user.php";
 include '../../Model/session.php';
 include '../../Model/auth_check.php';
+
+//PLEASE NOTE: FIX THE FINANCE.CSS ASSETS SINCE RIGHT NOW WE ARE USING THE ADMIN ONE
+//HIGHLY IMPORTANT, ALBANI
 ?>
 <!DOCTYPE html>
 <html>
+    
 
 <head>
-  <title>Admin Dashboard</title>
+  <title>Finance Dashboard</title>
   <link rel="stylesheet" href="../../Asset/CSS/admin.css">
   <link rel="stylesheet" href="../../Asset/CSS/stockcheck.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
-  <title>Admin</title>
+  <title>Finance</title>
 </head>
 <body>
   <style>
@@ -165,7 +169,7 @@ include '../../Model/auth_check.php';
       <span></span>
     </button>
     <div class="admin-dashboard">
-      <h1>Admin Dashboard</h1>
+      <h1>Finance Dashboard</h1>
     </div>
 
     <div class="header">
@@ -182,7 +186,7 @@ include '../../Model/auth_check.php';
     </div>
   </div>
   <ul>
-    <li><a href="adminIndex.php"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+    <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
     <br>
     <li><a href="stockcheck.php"><i class="fas fa-clipboard-check" aria-hidden="true"></i> Check Stock</a></li>
     <br>
