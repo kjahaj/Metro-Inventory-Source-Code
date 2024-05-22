@@ -1,0 +1,39 @@
+.homeScreen{
+    width: 100vw;
+    height: auto;
+    align-items: center;
+  }
+
+   .container{
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 50px;
+    width: 800px;
+    height:100px;
+    background-color: rgb(242, 244, 245);
+    border-radius: 30px;
+   }
+
+   .container2{
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 50px;
+    width: 800px;
+    height: 100px;
+    background-color: #c2e0f4 !important;
+    border-radius: 30px;
+  }
+
+  .container3{
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 50px;
+    width: 800px;
+    height: 100px;
+    background-color: #99d4fb !important;
+    border-radius: 30px;
+  }
+
